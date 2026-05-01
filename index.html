@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Chart Microbulk Tank Builder · Ratermann Manufacturing</title>
+<link rel="stylesheet" href="chart-builder.css" />
+<!-- jsPDF for PDF export -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+<script src="chart-builder.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="builder-head">
+    <div>
+      <h1>Chart Microbulk Tank Builder</h1>
+      <p class="subtitle">Configure your Perma-Cyl® or Perma-Max® system. Choose a size, pick options, and copy or download your configuration summary.</p>
+    </div>
+    <button class="restart" id="restart-btn" type="button">Start Over</button>
+  </header>
+
+  <div class="layout">
+    <main id="steps-area">
+      <div class="loader-wrap">
+        <div class="loader-spin"></div>
+        <div>Loading tank data…</div>
+      </div>
+    </main>
+
+    <aside class="summary" id="summary">
+      <h2>Your Configuration</h2>
+      <p class="sub" id="sum-sub">Select a tank size to begin.</p>
+      <div id="sum-body">
+        <div class="empty">No selections yet</div>
+      </div>
+      <div class="summary-actions" id="actions" style="display:none">
+        <button class="btn secondary" id="copy-btn" type="button">Copy</button>
+        <button class="btn" id="pdf-btn" type="button">Download PDF</button>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="builder-foot">
+    <div>Ratermann Manufacturing, Inc. · 1-800-264-7793 · <a href="https://www.rmiorder.com" target="_blank" rel="noopener">rmiorder.com</a></div>
+    <div class="meta-line" id="meta-line"></div>
+  </footer>
+</div>
+
+<div class="toast" id="toast"></div>
+</body>
+</html>
