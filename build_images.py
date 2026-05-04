@@ -252,38 +252,27 @@ def build_tanks(pdf_dir: Path) -> list[str]:
     return issues
 
 
-# Each entry: (option_number, image_index_on_page_1)
-# The option photos in options-1-18.pdf are in catalog reading order.
-# Option image map (verified from page-1 layout of options-1-18.pdf):
-#   embedded JPEG 1 → option #1   (wall box)
-#   embedded JPEG 2 → option #2   (PB vaporizer coil)  -- shared image
-#   embedded JPEG 3 → option #3   (pallet base)
-#   embedded JPEG 4 → option #5   (vent-out safety piping)
-#   embedded JPEG 5 → option #6   (fill isolation valve kit)
-#   embedded JPEG 6 → option #7   (horizontal shipping kit)
-#   embedded JPEG 7 → option #8   (dual safeties + rupture discs)
-#   embedded JPEG 8 → option #9   (phase line tee connections)
-#   embedded JPEG 9 → option #10  (phase line isolation valves)
-#   embedded JPEG 10 → option #11 (dual regulating manifolds)
-#   embedded JPEG 11 → option #12 (vacuum-jacketed valve & bayonet)
-#   embedded JPEG 12 → bulk fill kit (covers #13–#15 top-fill)
-#   embedded JPEG 13 → bulk fill kit (covers #16–#18 flex-fill)
-# Option #4 (SS plumbing) often does not have a dedicated photo.
+# Map from catalog option number → 1-based index of the embedded JPEG on
+# page 1 of options-1-18.pdf, in pdfimages extraction order.
+#
+# Verified by visual audit of all 13 page-1 images.  Identity mapping for
+# #1–#12; #13–#18 (the six bulk-fill-kit rows) share the single bayonet
+# photo at idx 13 — the catalog uses tables (no per-row images) for those.
 OPTION_IMAGE_MAP = {
-    1: 1,    # wall box
-    2: 2,    # PB vaporizer coil
-    3: 3,    # pallet base
-    # 4 — SS plumbing — typically no dedicated photo; we'll handle missing gracefully
-    5: 4,    # vent-out safety piping
-    6: 5,    # fill isolation valve kit
-    7: 6,    # horizontal shipping kit
-    8: 7,    # dual safeties
-    9: 8,    # phase line tee
-    10: 9,   # phase line isolation
-    11: 10,  # dual regulating manifolds
-    12: 11,  # VJ valve + bayonet
-    13: 12, 14: 12, 15: 12,  # top-fill bulk fill kit (shared)
-    16: 13, 17: 13, 18: 13,  # flex-fill bulk fill kit (shared)
+    1:  1,    # wall box
+    2:  2,    # PB vaporizer coil
+    3:  3,    # pallet base
+    4:  4,    # SS plumbing
+    5:  5,    # vent-out safety piping
+    6:  6,    # fill isolation valve kit
+    7:  7,    # horizontal shipping kit
+    8:  8,    # dual safeties + rupture discs
+    9:  9,    # phase line tee
+    10: 10,   # phase line isolation valves
+    11: 11,   # dual regulating manifolds
+    12: 12,   # VJ valve + bayonet
+    13: 13, 14: 13, 15: 13,  # top-fill bulk fill kit (shared photo)
+    16: 13, 17: 13, 18: 13,  # flex-fill bulk fill kit (shared photo)
 }
 
 
