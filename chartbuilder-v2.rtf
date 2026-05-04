@@ -1,0 +1,166 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2868
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\froman\fcharset0 Times-Italic;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww11520\viewh10940\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Version 2 of Chart Tank Builder\
+Changes:\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Auto-select and hide Step 3 whenever it has exactly one option\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+\cf0 \strokec2 [There's redundancy between Step 3 and add-on Option #12 ("Vacuum-Jacketed Valve & Bayonet"). On the HP TopFills (1000/1500/2000/3000) and the 5500L MP, the VJ choice is baked into the Step 3 base tank options (VJ-L / VJ-R) \'97 but right now the configurator 
+\f2\i also
+\f1\i0  offers Option #12 as a separate add-on for those same tanks. So a user could pick "Perma-Cyl 1000 HP Vacuum Jacket Valve Right" at Step 3 and then 
+\f2\i also
+\f1\i0  tick Option #12. Two ways to fix in v.2: The cleaner option is to keep the VJ choice on Option #12 only and remove the VJ-L/VJ-R rows from Step 3 \'97 then Step 3 collapses to 1 option for those tanks too, and auto-skip works uniformly.] - from our chat, do this option\
+\
+It says step 1 of 2, 2 of 2, then step 3, and so on - change is to simply step 1, step 2, step 3, etc\
+\
+In the 1-18 option list, remove the numbers\
+In the 1-18 option list, do not cut-off the details, example: #6 says \'93Optional. Choose with-vent or \'85\'94 let\'92s make sure whole note is visible. Summary harder if needed for pretty spacing.\
+\
+\
+\
+\
+v2 \'97 Visual upgrade + Step 3 cleanup\
+====================================\
+\
+Two threads to land together: add product imagery, and clean up\
+the redundant "Tank Model" step.\
+\
+\
+1. Imagery: extract product photos from the source PDFs\
+-------------------------------------------------------\
+\
+Build a Python script `build_images.py` that runs once after any\
+PDF update and produces the full set of web-ready assets.\
+\
+Pipeline per image:\
+- pdfimages -j -p <source.pdf> /tmp/imgs/<basename>\
+- For each extracted JPEG: ImageMagick `convert -channel cmyk\
+  -negate -colorspace sRGB` (this is the trick that gives correct\
+  colors \'97 straight CMYK\uc0\u8594 sRGB comes out near-black)\
+- Resize and re-encode as WebP quality 80 (fall back to JPEG quality\
+  85 for older browsers via `<picture>` element)\
+\
+Tank hero images:\
+- One per tank. Source: largest embedded image on page 1 of each\
+  tank PDF (always the front-of-tank product shot on white).\
+- Output: images/tanks/<tank-id>.webp, ~600 px wide, ~25 KB each.\
+- Multi-tank PDFs (top/flex pairs, ZX-VHP 1500/3000, Perma-Max\
+  CO2 family): pull the distinct heroes where present; reuse where\
+  the catalog only has one shot.\
+\
+Add-on option images:\
+- 13 photos in options-1-18.pdf cover most of options 1\'9618.\
+- Output: images/options/opt-01.webp through opt-18.webp,\
+  ~280 px wide, ~10 KB each. Options without a dedicated photo\
+  (likely #4, #8, #11) get an SVG placeholder icon, no broken\
+  images.\
+\
+Spreadsheet integration:\
+- Add an "Image Path" column to the Tanks sheet and the Add-On\
+  Options sheet.\
+- xlsx_to_json.py copies these into chart-data.json.\
+- JS uses them to render thumbnails and gracefully handles\
+  missing/empty paths.\
+\
+\
+2. Step 3 cleanup: auto-skip and resolve VJ duplication\
+-------------------------------------------------------\
+\
+Today: 22 of 31 tanks have only 1 option at the "Tank Model" step\
+(Step 3). Forcing a click there is busywork. The 9 multi-option\
+tanks split into two cases:\
+\
+  a) Genuine product variants (230L, 450L-HP-DOT, Perma-Max\
+     4400/6000): keep the choice \'97 these are real\
+     internal-coil-vs-vaporizer or gas-specific picks.\
+  b) Vacuum-Jacketed Valve options (1000/1500/2000/3000 HP\
+     TopFill, 5500L MP FlexFill): these duplicate add-on\
+     Option #12. The user could pick "Perma-Cyl 1000 HP Vacuum\
+     Jacket Valve Right" at Step 3 AND tick Option #12.\
+\
+Resolution: remove VJ-L/VJ-R rows from the Tanks Description in\
+Step 3 \'97 keep only the base tank row. Move the VJ part numbers\
+(per tank) into a new tank-level field used by Option #12's\
+variant list, so #12 dynamically shows the right part # for the\
+selected tank. Net effect:\
+- Step 3 becomes 1-option for those tanks \uc0\u8594  auto-skip applies.\
+- Option #12 becomes the single source of truth for VJ choice.\
+\
+UI rule: any time a configSteps step has exactly 1 option,\
+auto-select it and don't render the panel. The selection still\
+flows into the summary as before.\
+\
+\
+3. Visual layout (default \'97 proceed unless told otherwise)\
+----------------------------------------------------------\
+\
+Tank hero image:\
+- Appears above the per-tank step panels the moment a tank is\
+  selected. Single panel, white background, 1 px hairline border,\
+  subtle shadow, 12 px rounded corners.\
+- Desktop: 240 px tall, image centered, ~30 px breathing room\
+  on each side.\
+- Mobile (<900 px): 160 px tall.\
+- No caption overlay \'97 the existing panel headers already say the\
+  tank name.\
+\
+Add-on option thumbnails:\
+- 56\'d756 px image on the far left of each .addon row, before the\
+  checkbox. 8 px rounded corners, light gray border, white\
+  background.\
+- Mobile: 44\'d744 px.\
+- Rows with no image render with the same square footprint but a\
+  flat neutral icon, so layout stays even.\
+- Hover/focus: gentle 1.02 scale + lift the shadow.\
+\
+Step 1 (size grid) and Step 2 (pressure/fill cards):\
+- Stay text-only. Thumbnails on those small buttons would clutter\
+  without adding value.\
+\
+Summary panel (right column):\
+- Stays text-only. It's a part-number list, not a marketing\
+  surface.\
+\
+PDF export:\
+- Add the tank hero image to the top right of page 1, ~140 px tall.\
+- Skip option thumbnails in the PDF \'97 keep it scannable.\
+\
+Mobile pass:\
+- Confirm the layout collapses cleanly at 380 px and 600 px\
+  breakpoints. Hero image, add-on thumbs, step buttons all need\
+  to feel tight without horizontal scroll.\
+\
+\
+4. Deliverables\
+---------------\
+\
+- build_images.py + a `make-images.sh` wrapper.\
+- images/tanks/*.webp (and .jpg fallbacks).\
+- images/options/*.webp (and .jpg fallbacks).\
+- Updated chart-builder.css with hero-image and thumbnail styles.\
+- Updated chart-builder.js with: (a) auto-skip rule for\
+  single-option steps, (b) hero rendering, (c) add-on thumbnail\
+  rendering, (d) Option #12 dynamic variant from tank data.\
+- Updated chart-data.json schema: tanks gain `heroImage` and\
+  `vjvLeft.partNumber` / `vjvRight.partNumber` fields where\
+  applicable; addOnOptions gain `image` field.\
+- Updated Chart Tank Data.xlsx with new image-path columns and\
+  VJ-part-# columns; xlsx_to_json.py reads them.\
+- Updated DEPLOYMENT.md noting the image build step\
+  (`./make-images.sh` after PDF updates, then commit the\
+  generated images alongside the JSON).\
+\
+Acceptance: every tank in the configurator shows its hero photo;\
+add-on rows show their thumbnails; Step 3 silently disappears for\
+single-option tanks; VJ choice happens only via Option #12;\
+mobile layout passes a manual eyeball test at 380 px width.}
