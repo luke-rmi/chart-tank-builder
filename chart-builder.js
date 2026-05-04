@@ -295,22 +295,24 @@ function renderAddOnsPanel() {
   const applicableMap = {};
   for (const ap of tank.applicableOptions) applicableMap[ap.optionNumber] = ap;
 
+  // Standard-included summary banner (full width)
   const standardCount = tank.applicableOptions.filter(a => a.standard).length;
   if (standardCount > 0) {
-    const note = el('div', {class: 'addon standard'});
-    note.appendChild(el('div', {class: 'addon-thumb addon-thumb-empty'},
-      el('span', {}, '✓')));
-    note.appendChild(el('div', {class: 'addon-body'},
-      el('p', {class: 'addon-title'}, standardCount + ' standard items already included'),
-      el('p', {class: 'addon-desc'}, 'See the configuration summary on the right.')));
+    const note = el('div', {class: 'standard-banner'});
+    note.appendChild(el('span', {class: 'standard-check'}, '✓'));
+    note.appendChild(el('div', {},
+      el('p', {class: 'standard-title'}, standardCount + ' standard items already included'),
+      el('p', {class: 'standard-desc'}, 'See the configuration summary on the right.')));
     body.appendChild(note);
   }
+
+  // Grid of option cards
+  const grid = el('div', {class: 'addon-grid'});
 
   for (const opt of CHART_DATA.addOnOptions) {
     const ap = applicableMap[opt.number];
     if (!ap || !ap.applies || ap.standard) continue;
 
-    // For Option #12, hide entirely if this tank has no VJ part numbers
     if (opt.number === 12) {
       const vrs = resolveVariants(opt, tank);
       if (vrs.length === 0) continue;
@@ -319,39 +321,36 @@ function renderAddOnsPanel() {
     const stateKey = String(opt.number);
     const cur = state.addOns[stateKey] || {checked: false, variant: null};
 
-    const wrap = el('div', {class: 'addon' + (cur.checked ? ' checked' : '')});
+    const card = el('div', {class: 'addon' + (cur.checked ? ' checked' : '')});
 
-    // Thumbnail
-    const thumbWrap = el('label', {class: 'addon-thumb', for: 'addon-' + opt.number});
+    // Image area (top of card)
+    const thumb = el('label', {class: 'addon-thumb', for: 'addon-' + opt.number});
     if (opt.image) {
       const img = tankImg(opt.image, opt.name, '');
-      if (img) thumbWrap.appendChild(img);
-    } else {
-      thumbWrap.classList.add('addon-thumb-empty');
-      thumbWrap.appendChild(el('span', {class: 'thumb-placeholder', html: '&#9881;'}));  // gear icon
+      if (img) thumb.appendChild(img);
     }
-    wrap.appendChild(thumbWrap);
+    card.appendChild(thumb);
 
-    // Checkbox + body
-    const middle = el('div', {class: 'addon-middle'});
+    // Body (below image)
+    const cardBody = el('div', {class: 'addon-card-body'});
+
+    const head = el('div', {class: 'addon-card-head'});
     const cb = el('input', {
       type: 'checkbox',
       id: 'addon-' + opt.number,
       onchange: (e) => toggleAddOn(opt, e.target.checked),
     });
     if (cur.checked) cb.checked = true;
-    middle.appendChild(cb);
+    head.appendChild(cb);
+    head.appendChild(el('p', {class: 'addon-title'}, opt.name));
+    cardBody.appendChild(head);
 
-    const inner = el('div', {class: 'addon-body'});
-    // Title — no "#N" prefix in v2; just the option name
-    inner.appendChild(el('p', {class: 'addon-title'}, opt.name));
-    inner.appendChild(el('p', {class: 'addon-desc'}, opt.shortDescription));
-    // Full applicability note (no truncation)
+    cardBody.appendChild(el('p', {class: 'addon-desc'}, opt.shortDescription));
     if (ap.notes) {
-      inner.appendChild(el('p', {class: 'addon-note'}, ap.notes));
+      cardBody.appendChild(el('p', {class: 'addon-note'}, ap.notes));
     }
 
-    if (opt.variants && opt.variants.length > 0 || opt.number === 12) {
+    if ((opt.variants && opt.variants.length > 0) || opt.number === 12) {
       const sub = el('div', {class: 'addon-sub'});
       sub.appendChild(el('span', {class: 'sub-label'}, variantLabel(opt)));
       const visibleVariants = resolveVariants(opt, tank);
@@ -364,16 +363,17 @@ function renderAddOnsPanel() {
         }, v.label);
         sub.appendChild(sb);
       }
-      inner.appendChild(sub);
+      cardBody.appendChild(sub);
     }
 
-    middle.appendChild(inner);
-    wrap.appendChild(middle);
-    body.appendChild(wrap);
+    card.appendChild(cardBody);
+    grid.appendChild(card);
   }
 
-  if (body.children.length === 0) {
+  if (grid.children.length === 0) {
     body.appendChild(el('p', {class: 'empty'}, 'No additional add-ons available for this tank.'));
+  } else {
+    body.appendChild(grid);
   }
 
   panel.appendChild(body);
@@ -393,16 +393,27 @@ function renderSummary() {
   const sub = $('#sum-sub');
   const body = $('#sum-body');
   const actions = $('#actions');
+  const heroSlot = $('#sum-hero');
 
   if (!state.tank) {
     sub.textContent = 'Select a tank size to begin.';
     body.innerHTML = '<div class="empty">No selections yet</div>';
     actions.style.display = 'none';
+    if (heroSlot) heroSlot.innerHTML = '';
     return;
   }
 
   body.innerHTML = '';
   sub.textContent = state.tank.displayName + ' · ' + state.tank.psiRating;
+
+  // Small tank hero in the summary header
+  if (heroSlot) {
+    heroSlot.innerHTML = '';
+    if (state.tank.heroImage) {
+      const img = tankImg(state.tank.heroImage, state.tank.displayName);
+      if (img) heroSlot.appendChild(img);
+    }
+  }
 
   // Tank
   const sec1 = el('div', {class: 'sum-section'});
@@ -519,12 +530,25 @@ function selectVariant(opt, variant) {
   render();
 }
 
-function scrollToNext() {
+function scrollToNext(opts = {}) {
+  // Wait long enough for layout (hero/option images) to settle before scrolling.
+  // Caller can pass {target: 'hero'} to scroll to the hero panel instead of the
+  // first non-done step (used right after a tank is picked).
   setTimeout(() => {
-    const panels = $$('.panel:not(.done)');
-    const next = panels.find(p => !p.classList.contains('done'));
-    if (next) next.scrollIntoView({behavior: 'smooth', block: 'start'});
-  }, 60);
+    let next = null;
+    if (opts.target === 'hero') {
+      next = document.querySelector('.hero-panel');
+    }
+    if (!next) {
+      next = document.querySelector('.panel:not(.done)');
+    }
+    if (!next) return;
+    // Scroll with a small offset so a sliver of the previous panel still shows
+    // (gives visual continuity), and the *next* panel below is also visible.
+    const rect = next.getBoundingClientRect();
+    const targetY = window.scrollY + rect.top - 24;
+    window.scrollTo({top: targetY, behavior: 'smooth'});
+  }, 180);
 }
 
 // =============================================================
