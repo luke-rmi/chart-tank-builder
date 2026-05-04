@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "version": "1.0",
+    "version": "2.0",
     "generated_by": "xlsx_to_json.py",
     "tankCount": 31,
     "issues": []
@@ -15,6 +15,7 @@
       "psiRating": "350 PSI",
       "standard": "DOT",
       "sourceFile": "230L-HP.pdf",
+      "heroImage": "images/tanks/230L-HP-TF.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -195,6 +196,7 @@
       "psiRating": "350 PSI",
       "standard": "DOT",
       "sourceFile": "450L-HP-DOT.pdf",
+      "heroImage": "images/tanks/450L-HP-DOT.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -370,6 +372,7 @@
       "psiRating": "350 PSI",
       "standard": "ASME",
       "sourceFile": "450L-HP-ASME.pdf",
+      "heroImage": "images/tanks/450L-HP-ASME.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -653,6 +656,7 @@
       "psiRating": "500 PSI",
       "standard": "DOT",
       "sourceFile": "450L-DOT-VHP.pdf",
+      "heroImage": "images/tanks/450L-VHP-DOT.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -921,6 +925,7 @@
       "psiRating": "500 PSI",
       "standard": "ASME",
       "sourceFile": "450L-ASME-VHP.pdf",
+      "heroImage": "images/tanks/450L-VHP-ASME.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -1214,6 +1219,7 @@
       "psiRating": "500 PSI",
       "standard": "ASME",
       "sourceFile": "450ZX-VHP.pdf",
+      "heroImage": "images/tanks/450L-ZX-VHP.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -1395,6 +1401,7 @@
       "psiRating": "350 PSI",
       "standard": "ASME",
       "sourceFile": "700L.pdf",
+      "heroImage": "images/tanks/700L-HP-TF.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -1678,6 +1685,7 @@
       "psiRating": "350 PSI",
       "standard": "ASME",
       "sourceFile": "1000L.pdf",
+      "heroImage": "images/tanks/1000L-HP-TF.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -1686,16 +1694,6 @@
             {
               "label": "Perma-Cyl 1000 HP",
               "partNumber": "PERMA-14157130-HP1000",
-              "notes": ""
-            },
-            {
-              "label": "Perma-Cyl 1000 HP Vacuum Jacket Valve Right",
-              "partNumber": "PERMA-14556157-HP1000-VJVR",
-              "notes": ""
-            },
-            {
-              "label": "Perma-Cyl 1000 HP Vacuum Jacket Valve Left",
-              "partNumber": "PERMA-20858365-HP1000-VJVL",
               "notes": ""
             }
           ]
@@ -1957,7 +1955,13 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "vjvRight": {
+        "partNumber": "PERMA-14556157-HP1000-VJVR"
+      },
+      "vjvLeft": {
+        "partNumber": "PERMA-20858365-HP1000-VJVL"
+      }
     },
     {
       "id": "1000L-VHP-TF",
@@ -1968,6 +1972,7 @@
       "psiRating": "500 PSI",
       "standard": "ASME",
       "sourceFile": "1000L-VHP-topfill-flexfill.pdf",
+      "heroImage": "images/tanks/1000L-VHP-TF.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -2268,6 +2273,7 @@
       "psiRating": "500 PSI",
       "standard": "ASME",
       "sourceFile": "1000L-VHP-topfill-flexfill.pdf",
+      "heroImage": "images/tanks/1000L-VHP-FF.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -2503,6 +2509,7 @@
       "psiRating": "350 PSI",
       "standard": "ASME",
       "sourceFile": "1500L.pdf",
+      "heroImage": "images/tanks/1500L-HP-TF.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -2511,16 +2518,6 @@
             {
               "label": "Perma-Cyl 1500 HP",
               "partNumber": "PERMA-14157172-HP1500",
-              "notes": ""
-            },
-            {
-              "label": "Perma-Cyl 1500 HP Vacuum Jacket Valve Right",
-              "partNumber": "PERMA-14556165-HP1500-VJVR",
-              "notes": ""
-            },
-            {
-              "label": "Perma-Cyl 1500 HP Vacuum Jacket Valve Left",
-              "partNumber": "PERMA-20858388-HP1500-VJVL",
               "notes": ""
             }
           ]
@@ -2787,7 +2784,13 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "vjvRight": {
+        "partNumber": "PERMA-14556165-HP1500-VJVR"
+      },
+      "vjvLeft": {
+        "partNumber": "PERMA-20858388-HP1500-VJVL"
+      }
     },
     {
       "id": "1500L-VHP-TF",
@@ -2798,6 +2801,7 @@
       "psiRating": "500 PSI",
       "standard": "ASME",
       "sourceFile": "1500L-VHP-topfill-flexfill.pdf",
+      "heroImage": "images/tanks/1500L-VHP-TF.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -3098,6 +3102,7 @@
       "psiRating": "500 PSI",
       "standard": "ASME",
       "sourceFile": "1500L-VHP-topfill-flexfill.pdf",
+      "heroImage": "images/tanks/1500L-VHP-FF.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -3333,6 +3338,7 @@
       "psiRating": "500 PSI",
       "standard": "ASME",
       "sourceFile": "1500L-3000L-ZX-VHP.pdf",
+      "heroImage": "images/tanks/1500L-ZX-VHP.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -3515,6 +3521,7 @@
       "psiRating": "350 PSI",
       "standard": "ASME",
       "sourceFile": "2000L-HP-topfill-flexfill.pdf",
+      "heroImage": "images/tanks/2000L-HP-TF.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -3523,16 +3530,6 @@
             {
               "label": "Perma-Cyl 2000 HP",
               "partNumber": "PERMA-14157201-HP2000",
-              "notes": ""
-            },
-            {
-              "label": "Perma-Cyl 2000 HP Vacuum Jacket Valve Right",
-              "partNumber": "PERMA-14556173-HP2000-VJVR",
-              "notes": ""
-            },
-            {
-              "label": "Perma-Cyl 2000 HP Vacuum Jacket Valve Left",
-              "partNumber": "PERMA-20858392-HP2000-VJVL",
               "notes": ""
             }
           ]
@@ -3804,7 +3801,13 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "vjvRight": {
+        "partNumber": "PERMA-14556173-HP2000-VJVR"
+      },
+      "vjvLeft": {
+        "partNumber": "PERMA-20858392-HP2000-VJVL"
+      }
     },
     {
       "id": "2000L-HP-FF",
@@ -3815,6 +3818,7 @@
       "psiRating": "350 PSI",
       "standard": "ASME",
       "sourceFile": "2000L-HP-topfill-flexfill.pdf",
+      "heroImage": "images/tanks/2000L-HP-FF.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -3999,6 +4003,7 @@
       "psiRating": "500 PSI",
       "standard": "ASME",
       "sourceFile": "2000L-VHP-topfill-flexfill.pdf",
+      "heroImage": "images/tanks/2000L-VHP-TF.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -4279,6 +4284,7 @@
       "psiRating": "500 PSI",
       "standard": "ASME",
       "sourceFile": "2000L-VHP-topfill-flexfill.pdf",
+      "heroImage": "images/tanks/2000L-VHP-FF.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -4514,6 +4520,7 @@
       "psiRating": "350 PSI",
       "standard": "ASME",
       "sourceFile": "3000L-HP-topfill-flexfill.pdf",
+      "heroImage": "images/tanks/3000L-HP-TF.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -4522,16 +4529,6 @@
             {
               "label": "Perma-Cyl 3000 HP",
               "partNumber": "PERMA-14401278-HP3000",
-              "notes": ""
-            },
-            {
-              "label": "Perma-Cyl 3000 HP Vacuum Jacket Valve Right",
-              "partNumber": "PERMA-14497492-HP3000-VJVR",
-              "notes": ""
-            },
-            {
-              "label": "Perma-Cyl 3000 HP Vacuum Jacket Valve Left",
-              "partNumber": "PERMA-20858395-HP3000-VJV",
               "notes": ""
             }
           ]
@@ -4803,7 +4800,13 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "vjvRight": {
+        "partNumber": "PERMA-14497492-HP3000-VJVR"
+      },
+      "vjvLeft": {
+        "partNumber": "PERMA-20858395-HP3000-VJV"
+      }
     },
     {
       "id": "3000L-HP-FF",
@@ -4814,6 +4817,7 @@
       "psiRating": "350 PSI",
       "standard": "ASME",
       "sourceFile": "3000L-HP-topfill-flexfill.pdf",
+      "heroImage": "images/tanks/3000L-HP-FF.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -4998,6 +5002,7 @@
       "psiRating": "500 PSI",
       "standard": "ASME",
       "sourceFile": "3000L-VHP-topfill-flexfill.pdf",
+      "heroImage": "images/tanks/3000L-VHP-TF.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -5278,6 +5283,7 @@
       "psiRating": "500 PSI",
       "standard": "ASME",
       "sourceFile": "3000L-VHP-topfill-flexfill.pdf",
+      "heroImage": "images/tanks/3000L-VHP-FF.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -5513,6 +5519,7 @@
       "psiRating": "500 PSI",
       "standard": "ASME",
       "sourceFile": "1500L-3000L-ZX-VHP.pdf",
+      "heroImage": "images/tanks/3000L-ZX-VHP.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -5695,6 +5702,7 @@
       "psiRating": "250 PSI",
       "standard": "ASME",
       "sourceFile": "5500L-MP.pdf",
+      "heroImage": "images/tanks/5500L-MP-FF.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -5703,16 +5711,6 @@
             {
               "label": "Perma-Cyl 5500 MP FlexFill SS",
               "partNumber": "PERMA-21891164-MP5500-FF",
-              "notes": ""
-            },
-            {
-              "label": "Perma-Cyl 5500 MP FlexFill VJ-L SS",
-              "partNumber": "PERMA-21891165-MP5500-VJVL-FF",
-              "notes": ""
-            },
-            {
-              "label": "Perma-Cyl 5500 MP FlexFill VJ-R SS",
-              "partNumber": "PERMA-21891166-MP5500-VJVR-FF",
               "notes": ""
             }
           ]
@@ -5920,7 +5918,13 @@
           "standard": false,
           "notes": "Optional. Match to gas service."
         }
-      ]
+      ],
+      "vjvRight": {
+        "partNumber": "PERMA-21891166-MP5500-VJVR-FF"
+      },
+      "vjvLeft": {
+        "partNumber": "PERMA-21891165-MP5500-VJVL-FF"
+      }
     },
     {
       "id": "5500L-VHP-FF",
@@ -5931,6 +5935,7 @@
       "psiRating": "500 PSI",
       "standard": "ASME",
       "sourceFile": "5500L-VHP.pdf",
+      "heroImage": "images/tanks/5500L-VHP-FF.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -6173,6 +6178,7 @@
       "psiRating": "500 PSI",
       "standard": "ASME",
       "sourceFile": "7000L-VHP.pdf",
+      "heroImage": "images/tanks/7000L-VHP-FF.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -6414,6 +6420,7 @@
       "psiRating": "350 PSI",
       "standard": "ASME",
       "sourceFile": "permamax-HP-CO2.pdf",
+      "heroImage": "images/tanks/permamax-2200lb-HP-CO2.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -6612,6 +6619,7 @@
       "psiRating": "350 PSI",
       "standard": "ASME",
       "sourceFile": "permamax-HP-CO2.pdf",
+      "heroImage": "images/tanks/permamax-3300lb-HP-CO2.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -6810,6 +6818,7 @@
       "psiRating": "350 PSI",
       "standard": "ASME",
       "sourceFile": "permamax-HP-CO2.pdf",
+      "heroImage": "images/tanks/permamax-4400lb-HP-CO2.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -7018,6 +7027,7 @@
       "psiRating": "350 PSI",
       "standard": "ASME",
       "sourceFile": "permamax-HP-CO2.pdf",
+      "heroImage": "images/tanks/permamax-6000lb-HP-CO2.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -7232,6 +7242,7 @@
       "psiRating": "500 PSI",
       "standard": "ASME",
       "sourceFile": "permamax-VHP-5500L-CO2.pdf",
+      "heroImage": "images/tanks/permamax-12000lb-VHP-CO2.webp",
       "configSteps": [
         {
           "stepName": "Tank Model",
@@ -7444,6 +7455,7 @@
       "name": "Exterior Stainless Steel Wall Box",
       "shortDescription": "For remote filling of the storage vessel.",
       "selectionType": "gas-specific",
+      "image": "images/options/opt-01.webp",
       "variants": [
         {
           "label": "Nitrogen",
@@ -7468,6 +7480,7 @@
       "name": "External Pressure-Build Vaporizer Coil",
       "shortDescription": "For high-pressure, high-flow gas applications.",
       "selectionType": "fill-type-variant",
+      "image": "images/options/opt-02.webp",
       "variants": [
         {
           "label": "Top Fill",
@@ -7486,6 +7499,7 @@
       "name": "Lab/Pallet Base",
       "shortDescription": "Galvanized base, designed to catch or drain water.",
       "selectionType": "yes-no",
+      "image": "images/options/opt-03.webp",
       "variants": [
         {
           "label": "Pallet Base",
@@ -7498,6 +7512,7 @@
       "name": "Stainless Steel Plumbing",
       "shortDescription": "For high-purity applications.",
       "selectionType": "yes-no",
+      "image": "",
       "variants": []
     },
     {
@@ -7505,6 +7520,7 @@
       "name": "Vent-Out Safety Piping",
       "shortDescription": "Relief valve and burst-disc safety piping for indoor installations.",
       "selectionType": "yes-no-with-quantity",
+      "image": "images/options/opt-05.webp",
       "variants": [
         {
           "label": "450L\u20135500L MP",
@@ -7523,6 +7539,7 @@
       "name": "Fill Isolation Valve Kit",
       "shortDescription": "Ball valve and in-line relief on fill circuit. Top-fill tanks only.",
       "selectionType": "with-or-without-vent",
+      "image": "images/options/opt-06.webp",
       "variants": [
         {
           "label": "Without vent",
@@ -7539,6 +7556,7 @@
       "name": "Horizontal Shipping Kit",
       "shortDescription": "Lays the 2000L or 3000L on its side for shipping or doorway access.",
       "selectionType": "yes-no",
+      "image": "images/options/opt-07.webp",
       "variants": [
         {
           "label": "Horizontal Shipping Kit",
@@ -7551,6 +7569,7 @@
       "name": "Dual Safeties & Rupture Discs",
       "shortDescription": "Diverter valve to swap relief valves/rupture discs without depressurizing.",
       "selectionType": "yes-no",
+      "image": "images/options/opt-08.webp",
       "variants": []
     },
     {
@@ -7558,6 +7577,7 @@
       "name": "Phase Line Tee Connections",
       "shortDescription": "Connection point for telemetry / remote level gauge.",
       "selectionType": "yes-no",
+      "image": "images/options/opt-09.webp",
       "variants": [
         {
           "label": "Phase Line Tee Connections",
@@ -7570,6 +7590,7 @@
       "name": "Phase Line Isolation Valves",
       "shortDescription": "Isolate the liquid level gauge for service.",
       "selectionType": "yes-no",
+      "image": "images/options/opt-10.webp",
       "variants": [
         {
           "label": "Phase Line Isolation Valves",
@@ -7582,6 +7603,7 @@
       "name": "Dual Regulating Final Line Gas Manifolds",
       "shortDescription": "Single or dual manifolds; see catalog page 2A-3 for selection.",
       "selectionType": "yes-no",
+      "image": "images/options/opt-11.webp",
       "variants": []
     },
     {
@@ -7589,6 +7611,7 @@
       "name": "Vacuum-Jacketed Valve & Bayonet",
       "shortDescription": "\u00bd\" female bayonet for efficient liquid withdrawal. Specify side.",
       "selectionType": "side-choice",
+      "image": "images/options/opt-12.webp",
       "variants": [
         {
           "label": "Left-hand",
@@ -7605,6 +7628,7 @@
       "name": "Top-Fill Bulk Fill Kit \u2014 LIN",
       "shortDescription": "Top-fill only.",
       "selectionType": "yes-no",
+      "image": "images/options/opt-13.webp",
       "variants": [
         {
           "label": "LIN",
@@ -7617,6 +7641,7 @@
       "name": "Top-Fill Bulk Fill Kit \u2014 LOX",
       "shortDescription": "Top-fill only.",
       "selectionType": "yes-no",
+      "image": "images/options/opt-14.webp",
       "variants": [
         {
           "label": "LOX",
@@ -7629,6 +7654,7 @@
       "name": "Top-Fill Bulk Fill Kit \u2014 ARG",
       "shortDescription": "Top-fill only.",
       "selectionType": "yes-no",
+      "image": "images/options/opt-15.webp",
       "variants": [
         {
           "label": "ARG",
@@ -7641,6 +7667,7 @@
       "name": "FlexFill Bulk Fill Kit \u2014 LIN",
       "shortDescription": "FlexFill only.",
       "selectionType": "yes-no",
+      "image": "images/options/opt-16.webp",
       "variants": [
         {
           "label": "LIN",
@@ -7653,6 +7680,7 @@
       "name": "FlexFill Bulk Fill Kit \u2014 LOX",
       "shortDescription": "FlexFill only.",
       "selectionType": "yes-no",
+      "image": "images/options/opt-17.webp",
       "variants": [
         {
           "label": "LOX",
@@ -7665,6 +7693,7 @@
       "name": "FlexFill Bulk Fill Kit \u2014 ARG",
       "shortDescription": "FlexFill only.",
       "selectionType": "yes-no",
+      "image": "images/options/opt-18.webp",
       "variants": [
         {
           "label": "ARG",

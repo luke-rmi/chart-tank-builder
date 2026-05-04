@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """Read 'Chart Tank Data.xlsx' and regenerate chart-data.json.
 
-Use this any time the spreadsheet is edited. Then run inject_data.py
-to embed the updated JSON into chart-builder.html.
+v2: also reads Hero Image Path, VJV-Right/Left Part # (Tanks sheet) and
+Image Path (Add-On Options sheet).
 """
 import json
 from pathlib import Path
 from openpyxl import load_workbook
 
-XLSX = Path("Chart Tank Data.xlsx")
-OUT = Path("chart-data.json")
+REPO = Path(__file__).resolve().parent
+XLSX = REPO / "Chart Tank Data.xlsx"
+OUT = REPO / "chart-data.json"
 
 
 def truthy(v) -> bool:
@@ -43,7 +44,7 @@ def main() -> None:
         tid = s(r["Tank ID"])
         if not tid:
             continue
-        tanks[tid] = {
+        t = {
             "id": tid,
             "displayName": s(r["Display Name"]),
             "size": s(r["Size"]),
@@ -52,10 +53,18 @@ def main() -> None:
             "psiRating": s(r["PSI Rating"]),
             "standard": s(r["Standard (DOT/ASME)"]),
             "sourceFile": s(r["Source PDF"]),
+            "heroImage": s(r.get("Hero Image Path", "")),
             "configSteps": [],
             "standardIncludes": [],
             "applicableOptions": [],
         }
+        vjvr = s(r.get("VJV-Right Part #", ""))
+        vjvl = s(r.get("VJV-Left Part #", ""))
+        if vjvr:
+            t["vjvRight"] = {"partNumber": vjvr}
+        if vjvl:
+            t["vjvLeft"] = {"partNumber": vjvl}
+        tanks[tid] = t
 
     # Config steps
     step_buckets: dict[str, dict[int, dict]] = {tid: {} for tid in tanks}
@@ -75,7 +84,6 @@ def main() -> None:
             "partNumber": s(r["Part Number"]),
             "notes": s(r["Notes"]),
         }))
-
     for tid, t in tanks.items():
         for so in sorted(step_buckets[tid]):
             step = step_buckets[tid][so]
@@ -134,6 +142,7 @@ def main() -> None:
             "name": s(r["Name"]),
             "shortDescription": s(r["Short Description"]),
             "selectionType": s(r["Selection Type"]) or "yes-no",
+            "image": s(r.get("Image Path", "")),
             "variants": [],
         }
     var_buckets: dict[int, list] = {n: [] for n in options}
@@ -155,14 +164,13 @@ def main() -> None:
         }))
     for n, opt in options.items():
         opt["variants"] = [v for _, v in sorted(var_buckets.get(n, []))]
-        # Strip empty notes for cleaner JSON
         for v in opt["variants"]:
             if not v.get("notes"):
                 v.pop("notes", None)
 
     out = {
         "_meta": {
-            "version": "1.0",
+            "version": "2.0",
             "generated_by": "xlsx_to_json.py",
             "tankCount": len(tanks),
             "issues": [],
@@ -171,7 +179,7 @@ def main() -> None:
         "addOnOptions": [options[k] for k in sorted(options)],
     }
     OUT.write_text(json.dumps(out, indent=2))
-    print(f"Wrote {OUT}")
+    print(f"Wrote {OUT.name}")
     print(f"  tanks: {len(tanks)}  add-ons: {len(options)}")
 
 

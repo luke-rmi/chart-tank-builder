@@ -1,0 +1,19 @@
+# Source PDFs are inputs to build_images.py — large and not used at runtime.
+# Keep them out of the repo. Store them in source-pdfs/ locally.
+source-pdfs/
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Local development
+.venv/
+node_modules/
+
+# Editor leftovers
+.vscode/
+.idea/
+*.swp

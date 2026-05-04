@@ -1,4 +1,4 @@
-// Chart Microbulk Tank Builder · application logic
+// Chart Microbulk Tank Builder · application logic (v2)
 // Loads chart-data.json at runtime so data updates don't require redeploying the JS.
 
 // =============================================================
@@ -6,8 +6,6 @@
 // =============================================================
 let CHART_DATA = null;
 
-// Cache-busting query string — bump version after editing chart-data.json,
-// or comment this out and rely on GitHub Pages' default 10-minute cache.
 const DATA_URL = "chart-data.json?v=" + (new Date().getTime() % 100000);
 
 async function loadData() {
@@ -24,8 +22,8 @@ const state = {
   size: null,
   pressureClass: null,
   tank: null,
-  stepSelections: {},
-  addOns: {},
+  stepSelections: {},   // {stepIndex: option}
+  addOns: {},           // {optionNumber: {checked, variant}}
 };
 
 // =============================================================
@@ -60,16 +58,12 @@ function showToast(msg) {
 
 function tanksBySize() {
   const groups = {};
-  for (const t of CHART_DATA.tanks) {
-    (groups[t.size] ??= []).push(t);
-  }
+  for (const t of CHART_DATA.tanks) (groups[t.size] ??= []).push(t);
   return groups;
 }
 
-// Display order for size buttons
 const SIZE_ORDER = ['230L','450L','700L','1000L','1500L','2000L','3000L','5500L','7000L','Perma-Max'];
 
-// Pretty pressure-class label
 const PRESSURE_LABELS = {
   'MP': 'MP · 250 PSI',
   'HP': 'HP · 350 PSI',
@@ -79,6 +73,46 @@ const PRESSURE_LABELS = {
   'VHP-CO2': 'VHP CO₂ · 500 PSI',
 };
 
+// Auto-select single-option steps so user doesn't see them at all.
+// Returns array of [originalIndex, step] that should be SHOWN to the user.
+function visibleStepsFor(tank) {
+  return tank.configSteps
+    .map((step, idx) => [idx, step])
+    .filter(([, step]) => step.options.length > 1);
+}
+
+// Make sure all single-option steps are auto-selected in state.
+function autoSelectSingleSteps() {
+  if (!state.tank) return;
+  state.tank.configSteps.forEach((step, idx) => {
+    if (step.options.length === 1 && !state.stepSelections[idx]) {
+      state.stepSelections[idx] = step.options[0];
+    }
+  });
+}
+
+// Image fallback that swaps to .jpg if .webp fails.
+function tankImg(src, tankName, sizing) {
+  if (!src) return null;
+  const img = el('img', {
+    src,
+    alt: tankName || '',
+    loading: 'lazy',
+    style: sizing || '',
+    onerror: function() {
+      // Try jpg fallback once
+      if (!this.dataset.fallback) {
+        this.dataset.fallback = '1';
+        this.src = src.replace(/\.webp(\?.*)?$/, '.jpg$1');
+      } else {
+        // Hide quietly if both fail
+        this.style.display = 'none';
+      }
+    },
+  });
+  return img;
+}
+
 // =============================================================
 // Render
 // =============================================================
@@ -86,17 +120,27 @@ function render() {
   const area = $('#steps-area');
   area.innerHTML = '';
 
+  // Step 1 — Size
   area.appendChild(renderSizePanel());
 
-  if (state.size) {
-    area.appendChild(renderPressurePanel());
-  }
+  // Step 2 — Pressure & Fill
+  if (state.size) area.appendChild(renderPressurePanel());
 
   if (state.tank) {
-    state.tank.configSteps.forEach((step, i) => {
-      area.appendChild(renderStepPanel(step, i));
+    autoSelectSingleSteps();
+
+    // Hero image panel
+    if (state.tank.heroImage) area.appendChild(renderHeroPanel());
+
+    // Visible config steps (single-option steps are auto-selected & hidden)
+    const visible = visibleStepsFor(state.tank);
+    let visibleIdx = 0;
+    visible.forEach(([originalIdx, step]) => {
+      area.appendChild(renderStepPanel(step, originalIdx, visibleIdx + 3));
+      visibleIdx++;
     });
 
+    // Add-ons
     area.appendChild(renderAddOnsPanel());
   }
 
@@ -106,7 +150,7 @@ function render() {
 function renderSizePanel() {
   const groups = tanksBySize();
   const panel = el('section', {class: 'panel' + (state.size ? ' done' : '')});
-  panel.appendChild(el('span', {class: 'step-tag'}, 'Step 1 of 2'));
+  panel.appendChild(el('span', {class: 'step-tag'}, 'Step 1'));
   panel.appendChild(el('h2', {class: 'step-title'}, 'Choose a Tank Size'));
   panel.appendChild(el('p', {class: 'step-help'}, 'All Chart microbulk sizes available from RMI.'));
 
@@ -114,12 +158,12 @@ function renderSizePanel() {
   const grid = el('div', {class: 'button-grid'});
   for (const sz of SIZE_ORDER) {
     if (!groups[sz]) continue;
+    const variants = [...new Set(groups[sz].map(t => t.pressureClass))];
     const btn = el('button', {
       class: 'opt-btn' + (state.size === sz ? ' selected' : ''),
       type: 'button',
       onclick: () => selectSize(sz),
     }, sz);
-    const variants = [...new Set(groups[sz].map(t => t.pressureClass))];
     btn.appendChild(el('span', {class: 'pn'}, variants.join(' · ')));
     grid.appendChild(btn);
   }
@@ -127,8 +171,7 @@ function renderSizePanel() {
   panel.appendChild(body);
 
   if (state.size) {
-    const sel = el('p', {class: 'step-help', style: 'margin-top:6px;color:var(--rmi-blue-dark);font-weight:600'}, '✓ ' + state.size);
-    panel.appendChild(sel);
+    panel.appendChild(el('p', {class: 'step-confirm'}, '✓ ' + state.size));
   }
   return panel;
 }
@@ -139,13 +182,11 @@ function renderPressurePanel() {
   const variants = [];
   for (const t of tanks) {
     const key = `${t.pressureClass}|${t.fillType}`;
-    if (!variants.find(v => v.key === key)) {
-      variants.push({key, tank: t});
-    }
+    if (!variants.find(v => v.key === key)) variants.push({key, tank: t});
   }
 
   const panel = el('section', {class: 'panel' + (state.tank ? ' done' : '')});
-  panel.appendChild(el('span', {class: 'step-tag'}, 'Step 2 of 2'));
+  panel.appendChild(el('span', {class: 'step-tag'}, 'Step 2'));
   panel.appendChild(el('h2', {class: 'step-title'}, 'Choose Pressure & Fill Type'));
   panel.appendChild(el('p', {class: 'step-help'}, 'Available variants for the ' + state.size + '.'));
 
@@ -169,27 +210,34 @@ function renderPressurePanel() {
   panel.appendChild(body);
 
   if (state.tank) {
-    const sel = el('p', {class: 'step-help', style: 'margin-top:6px;color:var(--rmi-blue-dark);font-weight:600'}, '✓ ' + state.tank.displayName);
-    panel.appendChild(sel);
+    panel.appendChild(el('p', {class: 'step-confirm'}, '✓ ' + state.tank.displayName));
   }
   return panel;
 }
 
-function renderStepPanel(step, idx) {
-  const isAnswered = !!state.stepSelections[idx];
+function renderHeroPanel() {
+  const t = state.tank;
+  const panel = el('section', {class: 'hero-panel'});
+  const img = tankImg(t.heroImage, t.displayName, '');
+  if (img) panel.appendChild(img);
+  return panel;
+}
+
+function renderStepPanel(step, originalIdx, displayedStepNum) {
+  const isAnswered = !!state.stepSelections[originalIdx];
   const useList = step.options.length > 5 || step.options.some(o => (o.label || '').length > 40);
   const panel = el('section', {class: 'panel' + (isAnswered ? ' done' : '')});
-  panel.appendChild(el('span', {class: 'step-tag'}, 'Step ' + (idx + 3)));
+  panel.appendChild(el('span', {class: 'step-tag'}, 'Step ' + displayedStepNum));
   panel.appendChild(el('h2', {class: 'step-title'}, step.stepName));
 
   const body = el('div', {class: 'step-body'});
   const container = el('div', {class: useList ? 'opt-list' : 'button-grid'});
   for (const o of step.options) {
-    const isSel = state.stepSelections[idx] && state.stepSelections[idx].partNumber === o.partNumber;
+    const isSel = state.stepSelections[originalIdx] && state.stepSelections[originalIdx].partNumber === o.partNumber;
     const btn = el('button', {
       class: 'opt-btn' + (isSel ? ' selected' : ''),
       type: 'button',
-      onclick: () => selectStep(idx, o),
+      onclick: () => selectStep(originalIdx, o),
     });
     btn.appendChild(el('span', {}, o.label));
     btn.appendChild(el('span', {class: 'pn'}, o.partNumber));
@@ -199,16 +247,45 @@ function renderStepPanel(step, idx) {
   panel.appendChild(body);
 
   if (isAnswered) {
-    const sel = state.stepSelections[idx];
-    panel.appendChild(el('p', {class: 'step-help', style: 'margin-top:6px;color:var(--rmi-blue-dark);font-weight:600'}, '✓ ' + sel.label));
+    panel.appendChild(el('p', {class: 'step-confirm'}, '✓ ' + state.stepSelections[originalIdx].label));
   }
   return panel;
 }
 
+// Determine the variants to show for an add-on, including dynamic
+// per-tank values (e.g. Option #12 pulls VJ-L/VJ-R from tank data).
+function resolveVariants(opt, tank) {
+  // Option #12: build dynamically from tank's vjvLeft/vjvRight
+  if (opt.number === 12) {
+    const out = [];
+    if (tank.vjvRight?.partNumber) out.push({label: 'Right-hand', partNumber: tank.vjvRight.partNumber});
+    if (tank.vjvLeft?.partNumber) out.push({label: 'Left-hand', partNumber: tank.vjvLeft.partNumber});
+    return out;
+  }
+  // Option 2: only show variant matching tank fill type
+  if (opt.number === 2) {
+    if (tank.fillType === 'TopFill') return opt.variants.filter(v => v.label === 'Top Fill');
+    if (tank.fillType === 'FlexFill') return opt.variants.filter(v => v.label === 'FlexFill');
+  }
+  // Option 5: only show variant matching tank size/pressure family
+  if (opt.number === 5) {
+    if (tank.pressureClass === 'VHP' && (tank.size === '5500L' || tank.size === '7000L')) {
+      return opt.variants.filter(v => v.label.includes('VHP'));
+    }
+    return opt.variants.filter(v => v.label.includes('5500L MP') || v.label.includes('450L'));
+  }
+  return opt.variants;
+}
+
 function renderAddOnsPanel() {
   const tank = state.tank;
+  // Compute the displayed step number for the add-ons panel:
+  // Step 1 + Step 2 + visible per-tank steps + 1.
+  const visibleConfigSteps = visibleStepsFor(tank).length;
+  const addOnStepNum = 2 + visibleConfigSteps + 1;
+
   const panel = el('section', {class: 'panel'});
-  panel.appendChild(el('span', {class: 'step-tag'}, 'Add-On Options'));
+  panel.appendChild(el('span', {class: 'step-tag'}, 'Step ' + addOnStepNum));
   panel.appendChild(el('h2', {class: 'step-title'}, 'Optional Accessories'));
   panel.appendChild(el('p', {class: 'step-help'},
     'Items shown apply to the ' + tank.displayName + '. Standard items are auto-included.'));
@@ -221,8 +298,10 @@ function renderAddOnsPanel() {
   const standardCount = tank.applicableOptions.filter(a => a.standard).length;
   if (standardCount > 0) {
     const note = el('div', {class: 'addon standard'});
+    note.appendChild(el('div', {class: 'addon-thumb addon-thumb-empty'},
+      el('span', {}, '✓')));
     note.appendChild(el('div', {class: 'addon-body'},
-      el('p', {class: 'addon-title'}, '✓ ' + standardCount + ' standard items already included'),
+      el('p', {class: 'addon-title'}, standardCount + ' standard items already included'),
       el('p', {class: 'addon-desc'}, 'See the configuration summary on the right.')));
     body.appendChild(note);
   }
@@ -231,31 +310,51 @@ function renderAddOnsPanel() {
     const ap = applicableMap[opt.number];
     if (!ap || !ap.applies || ap.standard) continue;
 
-    const state_key = String(opt.number);
-    const cur = state.addOns[state_key] || {checked: false, variant: null};
+    // For Option #12, hide entirely if this tank has no VJ part numbers
+    if (opt.number === 12) {
+      const vrs = resolveVariants(opt, tank);
+      if (vrs.length === 0) continue;
+    }
+
+    const stateKey = String(opt.number);
+    const cur = state.addOns[stateKey] || {checked: false, variant: null};
 
     const wrap = el('div', {class: 'addon' + (cur.checked ? ' checked' : '')});
+
+    // Thumbnail
+    const thumbWrap = el('label', {class: 'addon-thumb', for: 'addon-' + opt.number});
+    if (opt.image) {
+      const img = tankImg(opt.image, opt.name, '');
+      if (img) thumbWrap.appendChild(img);
+    } else {
+      thumbWrap.classList.add('addon-thumb-empty');
+      thumbWrap.appendChild(el('span', {class: 'thumb-placeholder', html: '&#9881;'}));  // gear icon
+    }
+    wrap.appendChild(thumbWrap);
+
+    // Checkbox + body
+    const middle = el('div', {class: 'addon-middle'});
     const cb = el('input', {
       type: 'checkbox',
       id: 'addon-' + opt.number,
       onchange: (e) => toggleAddOn(opt, e.target.checked),
     });
     if (cur.checked) cb.checked = true;
-    wrap.appendChild(cb);
+    middle.appendChild(cb);
 
     const inner = el('div', {class: 'addon-body'});
-    const titleRow = el('p', {class: 'addon-title'},
-      '#' + opt.number + ' · ' + opt.name);
-    if (ap.notes) {
-      titleRow.appendChild(el('span', {class: 'addon-pill'}, shortenNote(ap.notes)));
-    }
-    inner.appendChild(titleRow);
+    // Title — no "#N" prefix in v2; just the option name
+    inner.appendChild(el('p', {class: 'addon-title'}, opt.name));
     inner.appendChild(el('p', {class: 'addon-desc'}, opt.shortDescription));
+    // Full applicability note (no truncation)
+    if (ap.notes) {
+      inner.appendChild(el('p', {class: 'addon-note'}, ap.notes));
+    }
 
-    if (opt.variants && opt.variants.length > 0) {
+    if (opt.variants && opt.variants.length > 0 || opt.number === 12) {
       const sub = el('div', {class: 'addon-sub'});
       sub.appendChild(el('span', {class: 'sub-label'}, variantLabel(opt)));
-      const visibleVariants = filterVariantsForTank(opt, tank);
+      const visibleVariants = resolveVariants(opt, tank);
       for (const v of visibleVariants) {
         const isSel = cur.variant && cur.variant.partNumber === v.partNumber;
         const sb = el('button', {
@@ -267,7 +366,9 @@ function renderAddOnsPanel() {
       }
       inner.appendChild(sub);
     }
-    wrap.appendChild(inner);
+
+    middle.appendChild(inner);
+    wrap.appendChild(middle);
     body.appendChild(wrap);
   }
 
@@ -284,27 +385,8 @@ function variantLabel(opt) {
   if (opt.selectionType === 'side-choice') return 'Tank side:';
   if (opt.selectionType === 'gas-specific') return 'Gas:';
   if (opt.selectionType === 'fill-type-variant') return 'Variant:';
+  if (opt.number === 12) return 'Tank side:';
   return 'Variant:';
-}
-
-function filterVariantsForTank(opt, tank) {
-  if (opt.number === 2) {
-    if (tank.fillType === 'TopFill') return opt.variants.filter(v => v.label === 'Top Fill');
-    if (tank.fillType === 'FlexFill') return opt.variants.filter(v => v.label === 'FlexFill');
-  }
-  if (opt.number === 5) {
-    if (tank.pressureClass === 'VHP' && (tank.size === '5500L' || tank.size === '7000L')) {
-      return opt.variants.filter(v => v.label.includes('VHP'));
-    }
-    return opt.variants.filter(v => v.label.includes('5500L MP') || v.label.includes('450L'));
-  }
-  return opt.variants;
-}
-
-function shortenNote(notes) {
-  if (!notes) return '';
-  if (notes.length > 32) return notes.substring(0, 30) + '…';
-  return notes;
 }
 
 function renderSummary() {
@@ -322,11 +404,13 @@ function renderSummary() {
   body.innerHTML = '';
   sub.textContent = state.tank.displayName + ' · ' + state.tank.psiRating;
 
+  // Tank
   const sec1 = el('div', {class: 'sum-section'});
   sec1.appendChild(el('p', {class: 'sum-h'}, 'Tank'));
   sec1.appendChild(makeSumItem(state.tank.displayName, ''));
   body.appendChild(sec1);
 
+  // Configuration
   const sec2 = el('div', {class: 'sum-section'});
   sec2.appendChild(el('p', {class: 'sum-h'}, 'Configuration'));
   let any = false;
@@ -339,6 +423,7 @@ function renderSummary() {
   if (!any) sec2.appendChild(el('div', {class: 'empty', style: 'padding:6px 0'}, 'No choices made yet'));
   body.appendChild(sec2);
 
+  // Standard Includes
   if (state.tank.standardIncludes && state.tank.standardIncludes.length) {
     const sec3 = el('div', {class: 'sum-section'});
     sec3.appendChild(el('p', {class: 'sum-h'}, 'Standard (Included)'));
@@ -350,7 +435,8 @@ function renderSummary() {
     body.appendChild(sec3);
   }
 
-  const addons = Object.entries(state.addOns).filter(([_,v]) => v.checked);
+  // Add-Ons
+  const addons = Object.entries(state.addOns).filter(([_, v]) => v.checked);
   if (addons.length) {
     const sec4 = el('div', {class: 'sum-section'});
     sec4.appendChild(el('p', {class: 'sum-h'}, 'Selected Add-Ons'));
@@ -358,12 +444,16 @@ function renderSummary() {
       const opt = CHART_DATA.addOnOptions.find(o => String(o.number) === num);
       if (!opt) continue;
       const v = val.variant;
-      const label = '#' + opt.number + ' · ' + opt.name + (v ? ' (' + v.label + ')' : '');
-      const part = v ? v.partNumber : (opt.variants[0]?.partNumber || '');
+      // No "#N" in summary either — just option name
+      const label = opt.name + (v ? ' (' + v.label + ')' : '');
+      let part = v ? v.partNumber : '';
+      // For Option 12 with no variant chosen yet, leave blank
+      if (!part && opt.variants?.[0]?.partNumber && opt.number !== 12) {
+        part = opt.variants[0].partNumber;
+      }
       const item = makeSumItem(label, part);
-
       if (opt.number === 5 && state.tank.pressureClass !== 'VHP') {
-        item.querySelector('.lbl').appendChild(el('span', {style: 'color:var(--warn);font-weight:600;font-size:11px'}, ' (Qty 2)'));
+        item.querySelector('.lbl').appendChild(el('span', {class: 'qty-flag'}, ' (Qty 2)'));
       }
       sec4.appendChild(item);
     }
@@ -413,8 +503,9 @@ function toggleAddOn(opt, checked) {
   const key = String(opt.number);
   if (!state.addOns[key]) state.addOns[key] = {checked: false, variant: null};
   state.addOns[key].checked = checked;
-  if (checked && opt.variants && opt.variants.length > 0 && !state.addOns[key].variant) {
-    const visible = filterVariantsForTank(opt, state.tank);
+  // Auto-select first variant if only one is visible
+  if (checked && !state.addOns[key].variant) {
+    const visible = resolveVariants(opt, state.tank);
     if (visible.length === 1) state.addOns[key].variant = visible[0];
   }
   render();
@@ -470,7 +561,7 @@ function buildPlainSummary() {
     for (const [num, val] of addons) {
       const opt = CHART_DATA.addOnOptions.find(o => String(o.number) === num);
       const v = val.variant;
-      let line = '#' + opt.number + ' ' + opt.name;
+      let line = opt.name;
       if (v) line += ' (' + v.label + ')';
       if (v && v.partNumber) line += '  [' + v.partNumber + ']';
       if (opt.number === 5 && state.tank.pressureClass !== 'VHP') line += '  (Qty 2 required)';
@@ -500,14 +591,41 @@ async function handleCopy() {
   }
 }
 
-function handlePdf() {
+// Load image and convert to data URL for PDF embed.
+function loadImageForPdf(src) {
+  return new Promise((resolve) => {
+    if (!src) return resolve(null);
+    const tryLoad = (url, fallback) => {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => {
+        try {
+          const c = document.createElement('canvas');
+          c.width = img.naturalWidth;
+          c.height = img.naturalHeight;
+          c.getContext('2d').drawImage(img, 0, 0);
+          resolve({ data: c.toDataURL('image/jpeg', 0.85), w: img.naturalWidth, h: img.naturalHeight });
+        } catch (e) {
+          resolve(null);
+        }
+      };
+      img.onerror = () => fallback ? tryLoad(fallback, null) : resolve(null);
+      img.src = url;
+    };
+    const jpgFallback = src.replace(/\.webp(\?.*)?$/, '.jpg$1');
+    tryLoad(src, jpgFallback);
+  });
+}
+
+async function handlePdf() {
   if (!state.tank) return;
   const { jsPDF } = window.jspdf;
   const pdf = new jsPDF({unit: 'pt', format: 'letter'});
   const W = pdf.internal.pageSize.getWidth();
+  const H = pdf.internal.pageSize.getHeight();
   const M = 50;
-  let y = M;
 
+  // Header band
   pdf.setFillColor(10, 77, 140);
   pdf.rect(0, 0, W, 70, 'F');
   pdf.setTextColor(255,255,255);
@@ -515,14 +633,31 @@ function handlePdf() {
   pdf.text('Chart Microbulk Tank Configuration', M, 35);
   pdf.setFontSize(11); pdf.setFont('helvetica', 'normal');
   pdf.text('Ratermann Manufacturing, Inc.  ·  1-800-264-7793  ·  rmiorder.com', M, 55);
-  y = 100;
+
+  // Tank header + hero image (top right)
+  let y = 100;
+  let leftWidth = W - 2 * M;
   pdf.setTextColor(20, 30, 40);
 
+  let heroData = null;
+  try { heroData = await loadImageForPdf(state.tank.heroImage); } catch (e) {}
+
+  if (heroData) {
+    const targetH = 140;
+    const targetW = (heroData.w / heroData.h) * targetH;
+    const imgX = W - M - targetW;
+    pdf.addImage(heroData.data, 'JPEG', imgX, y, targetW, targetH);
+    leftWidth = imgX - M - 20;
+  }
+
   pdf.setFontSize(15); pdf.setFont('helvetica', 'bold');
-  pdf.text(state.tank.displayName, M, y); y += 18;
+  pdf.text(state.tank.displayName, M, y + 18, {maxWidth: leftWidth}); y += 36;
   pdf.setFontSize(10); pdf.setFont('helvetica', 'normal'); pdf.setTextColor(80, 90, 110);
   pdf.text('Pressure: ' + state.tank.psiRating + '  ·  ID: ' + state.tank.id, M, y); y += 22;
   pdf.setTextColor(20, 30, 40);
+
+  // Make sure body content starts below the hero
+  if (heroData) y = Math.max(y, 100 + 140 + 20);
 
   function sectionTitle(t) {
     pdf.setFont('helvetica', 'bold'); pdf.setFontSize(11);
@@ -535,7 +670,7 @@ function handlePdf() {
   function lineRow(label, partNumber, isStd) {
     pdf.setFont('helvetica', 'normal'); pdf.setFontSize(10);
     if (isStd) pdf.setTextColor(26, 127, 60);
-    pdf.text(label, M + 6, y);
+    pdf.text(label, M + 6, y, {maxWidth: W - 2*M - 160});
     if (partNumber) {
       pdf.setFont('courier', 'normal');
       const tw = pdf.getTextWidth(partNumber);
@@ -543,7 +678,7 @@ function handlePdf() {
     }
     pdf.setTextColor(20, 30, 40);
     y += 14;
-    if (y > pdf.internal.pageSize.getHeight() - 60) { pdf.addPage(); y = M; }
+    if (y > H - 60) { pdf.addPage(); y = M; }
   }
 
   sectionTitle('Configuration');
@@ -566,9 +701,9 @@ function handlePdf() {
     for (const [num, val] of addons) {
       const opt = CHART_DATA.addOnOptions.find(o => String(o.number) === num);
       const v = val.variant;
-      let label = '#' + opt.number + ' ' + opt.name;
+      let label = opt.name;
       if (v) label += ' (' + v.label + ')';
-      let pn = v ? v.partNumber : (opt.variants[0]?.partNumber || '');
+      let pn = v ? v.partNumber : '';
       if (opt.number === 5 && state.tank.pressureClass !== 'VHP') pn += '  (Qty 2)';
       lineRow('• ' + label, pn);
     }

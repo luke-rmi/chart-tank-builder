@@ -14,21 +14,28 @@ commit → push.
 ## Folder contents
 
 ```
-Chart Microbulk Builder/
+chart-tank-builder/
 ├── index.html              ← The page. Loads CSS + JS + JSON.
 ├── chart-builder.css       ← Styles.
 ├── chart-builder.js        ← Logic. Fetches chart-data.json at runtime.
 ├── chart-data.json         ← Tank + option data (the only file that changes day-to-day).
-├── Chart Tank Data.xlsx    ← Editable spreadsheet (the source of truth for content).
+├── images/
+│   ├── tanks/<tank-id>.webp + .jpg      ← Hero image per tank.
+│   └── options/opt-NN.webp + .jpg       ← Add-on option photos.
+├── source-pdfs/            ← Source Chart catalog PDFs (used by build_images.py).
+├── Chart Tank Data.xlsx    ← Editable spreadsheet (source of truth for content).
 ├── xlsx_to_json.py         ← Converts the spreadsheet to chart-data.json.
+├── build_xlsx.py           ← (Rare) Rebuilds the spreadsheet from JSON after schema changes.
+├── build_images.py         ← Extracts product photos from PDFs.
+├── make-images.sh          ← Wrapper for build_images.py.
 ├── regenerate.sh           ← Runs xlsx_to_json.py.
 ├── DEPLOYMENT.md           ← This file.
-└── _legacy/                ← Single-file backup of the prototype. Not deployed.
+├── v2-brief.md             ← Record of v2 changes.
+└── _legacy/                ← Earlier prototype backups. Not deployed.
 ```
 
-The four files needed at runtime are: **index.html, chart-builder.css,
-chart-builder.js, chart-data.json**. The rest stays in your local repo
-but isn't required to be on the live site.
+Files served on the live site: **index.html, chart-builder.css, chart-builder.js,
+chart-data.json, images/**. Everything else is local tooling.
 
 ---
 
@@ -173,6 +180,36 @@ Webflow → **Publish** → choose your domain. The page is live.
   `1200px`. If selections get cut off at the bottom, raise to `1800px`.
 - A future improvement is auto-resize via `postMessage`. For the prototype,
   fixed min-height is fine.
+
+---
+
+## Part 2.5 · Building product images (one-time + when PDFs change)
+
+The configurator shows a hero photo per tank and a thumbnail per add-on option, all extracted from the original Chart catalog PDFs.
+
+### One-time install (macOS)
+
+```bash
+brew install poppler imagemagick webp
+```
+
+### Generating the images
+
+1. Drop the original Chart PDFs (`5500L-MP.pdf`, `1000L.pdf`, `options-1-18.pdf`, etc.) into a folder named `source-pdfs/` in the repo.
+2. Run:
+
+```bash
+./make-images.sh
+```
+
+This produces:
+
+- `images/tanks/<tank-id>.webp` and `.jpg` — one hero photo per tank.
+- `images/options/opt-NN.webp` and `.jpg` — one photo per add-on option (where the catalog has one).
+
+3. Commit `images/` along with your other changes. Don't commit `source-pdfs/` — those are large and not used at runtime; add `source-pdfs/` to `.gitignore`.
+
+If a PDF is ever revised, replace the file in `source-pdfs/` and re-run `./make-images.sh`. The script overwrites prior outputs.
 
 ---
 
