@@ -4,23 +4,26 @@ You're picking up a project Luke (webtech@rmimfg.com) has been building with Cla
 
 ## What this project is
 
-A web-based configurator that walks Ratermann Manufacturing customers through building a Chart microbulk tank order. The user picks a tank size, then pressure/fill type, then runs through tank-specific config questions, then opts into add-on accessories. They get a copy-able summary and a downloadable PDF with all part numbers.
+A web-based configurator that walks Ratermann Manufacturing customers through building a Chart microbulk tank order. The user picks a **gas type** (Step 1 — new), then size, then pressure/fill type, then runs through tank-specific config questions, then opts into add-on accessories. They get a downloadable PDF with all part numbers and a "Contact Sales" button that fires a mailto to sales@rmimfg.com.
 
 It's deployed as a static site on **GitHub Pages** (`luke-rmi/chart-tank-builder` repo) and embedded in **Webflow** via an iframe on a standalone page off the RMI domain. Source PDFs are Chart's catalog spreads from `source-pdfs/` (gitignored — not deployed).
 
 ## Current state — what's shipped
 
-Three rounds in, all on `main`:
+Four rounds in, last session added v2.2 changes (not yet committed):
 
 ```
-46814aa  v2.1: replace opt-04 (SS plumbing) image with cleaner source
-5d41e79  v2.1: hero in summary, sticky-scroll, larger option cards
-4ec4b07  v2: add product images (31 tank heroes + 18 option photos)
-a51a0e0  v2: image support, Step 3 cleanup, mobile polish
-79c91e0  Initial chart tank builder
+[pending]  v2.2: gas type step, GSK auto-filter, contact sales, opt-04 fix, scroll/nowrap fixes
+46814aa    v2.1: replace opt-04 (SS plumbing) image with cleaner source
+5d41e79    v2.1: hero in summary, sticky-scroll, larger option cards
+4ec4b07    v2: add product images (31 tank heroes + 18 option photos)
+a51a0e0    v2: image support, Step 3 cleanup, mobile polish
+79c91e0    Initial chart tank builder
 ```
 
-As of the last commit the tool is feature-complete and live. Luke's day-to-day workflow is: edit `Chart Tank Data.xlsx` → run `./regenerate.sh` → commit + push → live in ~60s.
+Luke's day-to-day workflow is: edit `Chart Tank Data.xlsx` → run `./regenerate.sh` → commit + push → live in ~60s.
+
+**Important after v2.2:** `chart-data.json` was hand-edited to fix opt-04's empty image path. If Luke runs `./regenerate.sh`, it will regenerate from the xlsx — make sure the xlsx also has `images/options/opt-04.webp` in the image column for Option 4, or the fix will be lost.
 
 ## Folder orientation
 
@@ -63,6 +66,16 @@ source-pdfs/                                                       ← gitignore
 - Lint JS: `node --check chart-builder.js`.
 - Spreadsheet roundtrip: `python3 xlsx_to_json.py` — should produce equivalent JSON.
 - Image rebuild (only if source PDFs change): drop PDFs into `source-pdfs/`, run `./make-images.sh`. Requires `brew install poppler imagemagick webp` on macOS.
+
+## v2.2 architecture — decisions made this session
+
+- **Gas type is Step 1.** Choices: Oxygen (O₂), Argon (Ar), Nitrogen (N₂), CO₂. Stored as `state.gasType`. Selecting CO₂ filters the tank list to permamax tanks only; others filter to non-permamax.
+- **GSK auto-filter.** `getEffectiveOptions()` strips Gas Service Label Kit options to only those matching the selected gas (detected from hyphen-separated part-number segments: `-AR-`, `-NI-`, `-OX-`, `-CO2-`, with label-name fallback). Permamax GSK options (service types: Beverage/Bulk Fill/Vapor Balance) have no gas codes — they're kept as-is. Single-option GSK steps auto-select and hide.
+- **Option #8 suppressed when Dual Relief Kit configStep exists.** `hasDualReliefKitStep()` checks configSteps for a step whose name contains "dual relief". If found, Option #8 (Dual Safeties & Rupture Discs) is skipped in the add-ons grid — they're the same concept, confirmed by Luke.
+- **Contact Sales replaces Copy button.** Opens a full-screen overlay modal. Left col = live config summary. Right col = form (name, company, email, phone — all required). Submit fires a `mailto:sales@rmimfg.com` link with all details pre-filled in the body, and simultaneously downloads the PDF. No backend or third-party service needed.
+- **Part numbers never wrap.** `white-space: nowrap; overflow: hidden; text-overflow: ellipsis` on all `.pn` elements.
+- **Summary scroll bug fixed.** `overscroll-behavior: contain` on `.summary-scroll` prevents the sticky panel's internal scroll from hijacking page scroll when the cursor is over it.
+- **opt-04 image fixed.** The `chart-data.json` had `"image": ""` for Option 4. Fixed to `"images/options/opt-04.webp"`. The source PNG was also re-processed from `source-pdfs/option-source-images/opt-04-source.png` into fresh webp + jpg files.
 
 ## Gotchas the previous session learned the hard way
 

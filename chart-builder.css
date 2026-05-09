@@ -142,7 +142,9 @@ header.builder-head .restart:hover { background: var(--rmi-blue-light); border-c
   color: var(--ink-soft);
   margin-top: 4px;
   font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
-  word-break: break-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .opt-list {
@@ -380,6 +382,7 @@ header.builder-head .restart:hover { background: var(--rmi-blue-light); border-c
   margin: 0 -8px;          /* negative margin so scrollbar sits closer to edge */
   padding: 0 8px;
   min-height: 0;           /* allow flex child to shrink so overflow kicks in */
+  overscroll-behavior: contain; /* prevent page scroll hijack when summary is scrolled */
 }
 .summary h2 {
   font-size: 16px;
@@ -420,8 +423,10 @@ header.builder-head .restart:hover { background: var(--rmi-blue-light); border-c
   font-size: 11px;
   flex: 0 0 auto;
   text-align: right;
-  word-break: break-all;
-  max-width: 50%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 55%;
 }
 .sum-item .lbl { flex: 1; }
 .sum-item.std .lbl::after {
@@ -579,4 +584,335 @@ footer.builder-foot {
   .addon-thumb { height: 140px; }
   .hero-panel { height: 140px; padding: 8px; }
   .summary { padding: 14px 16px; }
+}
+
+/* =============================================================
+   Gas Type Panel — Step 1 Industrial Edition
+   ============================================================= */
+.gas-type-panel {
+  background: linear-gradient(135deg, #0d1b2a 0%, #162840 100%);
+  border-color: #1e3a54;
+}
+.gas-type-panel.done { opacity: 1; background: linear-gradient(135deg, #0d1b2a 0%, #162840 100%); }
+.gas-type-panel.done .step-body { display: none; }
+
+.gas-step-tag {
+  background: rgba(255,255,255,.08);
+  color: #94a3b8;
+  border: 1px solid rgba(255,255,255,.12);
+}
+.gas-step-title {
+  color: #e2e8f0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+.gas-step-help {
+  color: #64748b;
+  font-style: italic;
+}
+.gas-confirm {
+  color: #7dd3fc;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+/* Gas card grid */
+.gas-type-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.gas-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 22px 12px 18px;
+  background: rgba(255,255,255,.04);
+  border: 1.5px solid rgba(255,255,255,.10);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all .15s ease;
+  user-select: none;
+  outline: none;
+}
+.gas-card:hover {
+  border-color: var(--gas-color, #7dd3fc);
+  background: rgba(255,255,255,.08);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.35);
+}
+.gas-card.selected {
+  border-color: var(--gas-color, #7dd3fc);
+  background: rgba(255,255,255,.10);
+  box-shadow: 0 0 0 3px rgba(255,255,255,.08), 0 6px 24px rgba(0,0,0,.4);
+}
+.gas-card:focus-visible {
+  outline: 2px solid var(--gas-color, #7dd3fc);
+  outline-offset: 2px;
+}
+
+/* Per-gas accent colors */
+.gas-card[data-gas="Oxygen"]   { --gas-color: #38bdf8; }
+.gas-card[data-gas="Argon"]    { --gas-color: #a78bfa; }
+.gas-card[data-gas="Nitrogen"] { --gas-color: #34d399; }
+.gas-card[data-gas="CO2"]      { --gas-color: #fb923c; }
+
+.gas-symbol {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--gas-color, #e2e8f0);
+  letter-spacing: -.02em;
+  transition: color .15s;
+}
+.gas-card:hover .gas-symbol,
+.gas-card.selected .gas-symbol { color: var(--gas-color); }
+
+.gas-name {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: rgba(255,255,255,.55);
+  transition: color .15s;
+}
+.gas-card:hover .gas-name,
+.gas-card.selected .gas-name { color: rgba(255,255,255,.85); }
+
+.gas-desc {
+  font-size: 10.5px;
+  color: rgba(255,255,255,.35);
+  text-align: center;
+  line-height: 1.4;
+  transition: color .15s;
+}
+.gas-card:hover .gas-desc,
+.gas-card.selected .gas-desc { color: rgba(255,255,255,.6); }
+
+/* Gas card responsive */
+@media (max-width: 640px) {
+  .gas-type-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .gas-symbol { font-size: 28px; }
+  .gas-card { padding: 18px 10px 14px; gap: 6px; }
+}
+@media (max-width: 380px) {
+  .gas-symbol { font-size: 24px; }
+  .gas-desc { display: none; }
+}
+
+/* =============================================================
+   Contact Sales Modal
+   ============================================================= */
+.contact-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,20,35,.72);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.contact-overlay.open { opacity: 1; }
+
+.contact-dialog {
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: 0 24px 80px rgba(0,0,0,.35);
+  max-width: 860px;
+  width: 100%;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  position: relative;
+  padding: 32px;
+  transform: translateY(16px);
+  transition: transform .25s ease;
+}
+.contact-overlay.open .contact-dialog { transform: translateY(0); }
+
+.contact-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .12s;
+}
+.contact-close:hover { background: var(--rmi-blue-light); border-color: var(--rmi-blue); color: var(--rmi-blue-dark); }
+
+.contact-head {
+  margin-bottom: 24px;
+  padding-right: 40px;
+}
+.contact-title {
+  font-size: 22px;
+  color: var(--rmi-blue-dark);
+  margin: 0 0 6px;
+  font-weight: 700;
+}
+.contact-subtitle {
+  color: var(--ink-soft);
+  font-size: 14px;
+  margin: 0;
+}
+
+.contact-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+.contact-col-head {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+}
+
+/* Config summary in modal */
+.contact-config-summary {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 13px;
+}
+.contact-sum-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 0;
+  border-bottom: 1px dotted var(--line);
+}
+.contact-sum-row:last-child { border-bottom: 0; }
+.contact-sum-label {
+  color: var(--ink-soft);
+  font-size: 12px;
+  flex: 0 0 auto;
+  max-width: 45%;
+}
+.contact-sum-value {
+  font-weight: 500;
+  text-align: right;
+  flex: 1;
+  color: var(--ink);
+  font-size: 12px;
+}
+.contact-sum-addons {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+.contact-sum-addons-head {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin: 0 0 4px;
+}
+.contact-sum-addon-item {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin: 2px 0;
+}
+
+/* Contact form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.contact-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.contact-input {
+  padding: 9px 12px;
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--ink);
+  background: var(--card);
+  transition: border-color .12s;
+  outline: none;
+}
+.contact-input:focus { border-color: var(--rmi-blue); box-shadow: 0 0 0 3px rgba(10,77,140,.08); }
+.contact-submit {
+  margin-top: 4px;
+  width: 100%;
+  font-size: 14px;
+  padding: 12px;
+}
+
+/* Success state */
+.contact-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 32px 16px 16px;
+}
+.contact-success-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #d1fae5;
+  color: #065f46;
+  font-size: 28px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.contact-success-title {
+  font-size: 20px;
+  color: var(--rmi-blue-dark);
+  margin: 0 0 12px;
+}
+.contact-success-msg {
+  color: var(--ink-soft);
+  font-size: 14px;
+  margin: 0;
+  max-width: 440px;
+  line-height: 1.5;
+}
+
+/* Modal mobile */
+@media (max-width: 700px) {
+  .contact-body { grid-template-columns: 1fr; gap: 20px; }
+  .contact-dialog { padding: 24px 20px; }
+}
+@media (max-width: 480px) {
+  .contact-dialog { padding: 20px 16px; border-radius: 12px; }
+  .contact-title { font-size: 19px; }
 }
