@@ -553,6 +553,30 @@ footer.builder-foot {
   color: var(--ink-soft);
   font-size: 12px;
 }
+.foot-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.foot-logo-rmi {
+  height: 28px;
+  width: auto;
+  border-radius: 3px;
+  opacity: .75;
+}
+.foot-logo-chart {
+  height: 28px;
+  width: auto;
+  opacity: .65;
+}
+.foot-logo-divider {
+  width: 1px;
+  height: 22px;
+  background: var(--line);
+  flex: 0 0 auto;
+}
 .meta-line {
   margin-top: 6px;
   font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
