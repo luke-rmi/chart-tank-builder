@@ -824,16 +824,19 @@ async function handlePdf() {
     pdf.setTextColor(20, 30, 40);
   }
   function lineRow(label, partNumber, isStd) {
+    const LH = 14; // line height in pt
+    const labelMaxW = W - 2*M - (partNumber ? 155 : 10);
     pdf.setFont('helvetica', 'normal'); pdf.setFontSize(10);
     if (isStd) pdf.setTextColor(26, 127, 60);
-    pdf.text(label, M + 6, y, {maxWidth: W - 2*M - 160});
+    const lines = pdf.splitTextToSize(label, labelMaxW);
+    lines.forEach((line, i) => pdf.text(line, M + 6, y + i * LH));
     if (partNumber) {
       pdf.setFont('courier', 'normal');
       const tw = pdf.getTextWidth(partNumber);
       pdf.text(partNumber, W - M - tw, y);
     }
     pdf.setTextColor(20, 30, 40);
-    y += 14;
+    y += lines.length * LH;
     if (y > H - 60) { pdf.addPage(); y = M; }
   }
 
@@ -1082,8 +1085,35 @@ function showContactSuccess() {
 // =============================================================
 // Reset
 // =============================================================
+function confirmRestart(onConfirm) {
+  const overlay = el('div', {class: 'confirm-overlay', id: 'confirm-overlay'});
+  const box = el('div', {class: 'confirm-box'});
+  const title = el('div', {class: 'confirm-title'}, 'Ratermann Chart Tool');
+  const msg   = el('p',   {class: 'confirm-msg'},   'Clear current configuration?');
+  const btns  = el('div', {class: 'confirm-btns'});
+  const cancel = el('button', {class: 'btn secondary confirm-cancel', type: 'button'}, 'Cancel');
+  const ok     = el('button', {class: 'btn confirm-ok',     type: 'button'}, 'Clear');
+  cancel.addEventListener('click', () => overlay.remove());
+  ok.addEventListener('click', () => { overlay.remove(); onConfirm(); });
+  overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+  btns.append(cancel, ok);
+  box.append(title, msg, btns);
+  overlay.appendChild(box);
+  document.body.appendChild(overlay);
+  cancel.focus();
+}
+
 function handleRestart() {
-  if (state.tank && !confirm('Clear current configuration?')) return;
+  if (state.tank) {
+    confirmRestart(() => {
+      state.gasType = state.size = state.pressureClass = state.tank = null;
+      state.stepSelections = {};
+      state.addOns = {};
+      render();
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+    return;
+  }
   state.gasType = state.size = state.pressureClass = state.tank = null;
   state.stepSelections = {};
   state.addOns = {};

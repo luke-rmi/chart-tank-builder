@@ -506,6 +506,29 @@ header.builder-head .restart:hover { background: var(--rmi-blue-light); border-c
   padding: 20px 4px;
 }
 
+/* Confirm dialog */
+.confirm-overlay {
+  position: fixed; inset: 0; z-index: 9000;
+  background: rgba(10,20,40,.55);
+  display: flex; align-items: center; justify-content: center;
+}
+.confirm-box {
+  background: #fff; border-radius: 10px; padding: 28px 32px 24px;
+  width: min(360px, 90vw); box-shadow: 0 8px 40px rgba(0,0,0,.28);
+}
+.confirm-title {
+  font-size: .75rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--rmi-blue);
+  margin-bottom: 10px;
+}
+.confirm-msg {
+  font-size: 1rem; color: var(--text); margin: 0 0 22px;
+}
+.confirm-btns {
+  display: flex; gap: 10px; justify-content: flex-end;
+}
+.confirm-btns .btn { min-width: 80px; }
+
 /* Toast */
 .toast {
   position: fixed;
