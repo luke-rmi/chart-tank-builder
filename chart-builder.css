@@ -563,13 +563,19 @@ footer.builder-foot {
 .foot-logo-rmi {
   height: 28px;
   width: auto;
+  max-width: 80px;
+  flex: 0 0 auto;
   border-radius: 3px;
   opacity: .75;
+  object-fit: contain;
 }
 .foot-logo-chart {
   height: 28px;
   width: auto;
+  max-width: 120px;
+  flex: 0 0 auto;
   opacity: .65;
+  object-fit: contain;
 }
 .foot-logo-divider {
   width: 1px;
