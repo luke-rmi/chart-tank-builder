@@ -646,7 +646,7 @@ function selectTank(tank) {
   state.stepSelections = {};
   state.addOns = {};
   render();
-  scrollToNext();
+  scrollToNext({target: 'hero'}); // land on the hero image, not the first config step
 }
 
 function selectStep(idx, option) {
