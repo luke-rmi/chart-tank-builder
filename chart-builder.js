@@ -16,6 +16,11 @@ async function loadData() {
 }
 
 // =============================================================
+// Web3Forms — handles email delivery to sales@rmimfg.com
+// =============================================================
+const W3F_KEY = '99dce9ea-074e-4e7e-a56e-eab17923e07d';
+
+// =============================================================
 // Constants
 // =============================================================
 const GAS_TYPES = [
@@ -1010,34 +1015,42 @@ async function submitContact() {
   }
 
   const submitBtn = document.querySelector('.contact-submit');
-  if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Preparing…'; }
+  if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
 
-  // Download PDF first
-  let pdfName = '';
-  try { pdfName = await handlePdf(); } catch (e) {}
+  const configText = buildPlainSummary();
 
-  // Build mailto
-  const gasInfo   = state.gasType ? GAS_TYPES.find(g => g.id === state.gasType) : null;
-  const configTxt = buildPlainSummary();
+  const payload = {
+    access_key: W3F_KEY,
+    subject:    'Quote Request — Chart Microbulk Tank Builder — ' + name + ' / ' + company,
+    from_name:  name,
+    email:      email,
+    Name:        name,
+    Company:     company,
+    Phone:       phone,
+    Configuration: configText,
+    botcheck: '',
+  };
 
-  const subject = encodeURIComponent('Quote Request — Chart Microbulk Tank Configuration');
-  const bodyTxt =
-    'QUOTE REQUEST\n' +
-    '=============\n\n' +
-    'Name:    ' + name    + '\n' +
-    'Company: ' + company + '\n' +
-    'Email:   ' + email   + '\n' +
-    'Phone:   ' + phone   + '\n\n' +
-    '--- TANK CONFIGURATION ---\n\n' +
-    configTxt +
-    '\n\n[The PDF configuration sheet has been downloaded to your device — please attach it before sending.]';
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body:    JSON.stringify(payload),
+    });
+    const data = await res.json();
 
-  const mailto = 'mailto:sales@rmimfg.com?subject=' + subject + '&body=' + encodeURIComponent(bodyTxt);
-
-  setTimeout(() => {
-    window.location.href = mailto;
-    showContactSuccess();
-  }, 400);
+    if (data.success) {
+      showContactSuccess();
+    } else {
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send to Sales Team →'; }
+      showToast('Something went wrong — please try again.');
+      console.error('Web3Forms error:', data);
+    }
+  } catch (err) {
+    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send to Sales Team →'; }
+    showToast('Network error — check your connection and try again.');
+    console.error('Submit error:', err);
+  }
 }
 
 function showContactSuccess() {
@@ -1052,12 +1065,12 @@ function showContactSuccess() {
 
   const win = el('div', {class: 'contact-success'});
   win.appendChild(el('div', {class: 'contact-success-icon'}, '✓'));
-  win.appendChild(el('h2', {class: 'contact-success-title'}, "You're all set!"));
+  win.appendChild(el('h2', {class: 'contact-success-title'}, "Request sent!"));
   win.appendChild(el('p', {class: 'contact-success-msg'},
-    'Your email client should have opened with the quote request pre-filled. ' +
-    'The PDF has been downloaded — please attach it to the email before sending.'));
+    'Your quote request is on its way to the RMI sales team. ' +
+    "We'll be in touch shortly."));
   win.appendChild(el('p', {class: 'contact-success-msg', style: 'font-weight:600;margin-top:10px'},
-    'Questions? Call us at 1-800-264-7793'));
+    'Need it faster? Call us at 1-800-264-7793'));
   win.appendChild(el('button', {
     class: 'btn', type: 'button', style: 'margin-top:20px; min-width:140px',
     onclick: closeContactModal,
