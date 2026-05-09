@@ -2,9 +2,10 @@
 
 /* ---------- RMI palette ---------- */
 :root {
-  --rmi-blue: #0a4d8c;       /* primary */
+  --rmi-blue: #0a4d8c;       /* primary — dark navy */
   --rmi-blue-dark: #073968;
   --rmi-blue-light: #e8f1fb;
+  --rmi-blue-bright: #00ADEF; /* RMI brand bright blue (the "R") */
   --rmi-accent: #f47c20;     /* orange accent (used sparingly) */
   --ink: #1a2330;
   --ink-soft: #4a5568;
@@ -36,10 +37,41 @@ header.builder-head {
   padding-bottom: 16px;
   margin-bottom: 24px;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
+}
+.head-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  flex: 1;
+  min-width: 0;
+}
+.head-logos {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+.logo-rmi {
+  height: 40px;
+  width: auto;
+  display: block;
+  border-radius: 4px;
+}
+.logo-chart {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+.logo-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--line);
+  flex: 0 0 auto;
 }
 header.builder-head h1 {
   font-size: 22px;
@@ -332,13 +364,12 @@ header.builder-head .restart:hover { background: var(--rmi-blue-light); border-c
 .summary {
   position: sticky;
   top: 16px;
+  align-self: start;           /* CRITICAL: without this, sticky fails in CSS grid */
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 18px 20px;
   box-shadow: var(--shadow);
-  /* Sticky + internal scroll: when summary is taller than viewport, it
-     scrolls its own body so the user can always reach all sections */
   display: flex;
   flex-direction: column;
   max-height: calc(100vh - 32px);
@@ -548,10 +579,11 @@ footer.builder-foot {
   .summary {
     position: relative !important;
     top: 0 !important;
-    max-height: none;
-    overflow: visible;
+    align-self: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
   }
-  .summary-scroll { overflow: visible; max-height: none; }
+  .summary-scroll { overflow: visible !important; max-height: none !important; }
   .hero-panel { height: 200px; padding: 12px; }
   .panel { padding: 18px 18px; }
 }
@@ -587,36 +619,43 @@ footer.builder-foot {
 }
 
 /* =============================================================
-   Gas Type Panel — Step 1 Industrial Edition
+   Gas Type Panel — Step 1 · RMI Blue
    ============================================================= */
 .gas-type-panel {
-  background: linear-gradient(135deg, #0d1b2a 0%, #162840 100%);
-  border-color: #1e3a54;
+  background: linear-gradient(150deg, #009BD6 0%, var(--rmi-blue-bright) 60%, #00C4FF 100%);
+  border-color: rgba(255,255,255,.25);
+  box-shadow: 0 4px 20px rgba(0,173,239,.35);
 }
-.gas-type-panel.done { opacity: 1; background: linear-gradient(135deg, #0d1b2a 0%, #162840 100%); }
+.gas-type-panel.done {
+  opacity: 1;
+  background: linear-gradient(150deg, #009BD6 0%, var(--rmi-blue-bright) 60%, #00C4FF 100%);
+}
 .gas-type-panel.done .step-body { display: none; }
 
 .gas-step-tag {
-  background: rgba(255,255,255,.08);
-  color: #94a3b8;
-  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.18);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.3);
+  font-weight: 700;
 }
 .gas-step-title {
-  color: #e2e8f0;
+  color: #fff;
   font-size: 20px;
   font-weight: 700;
   letter-spacing: -.02em;
+  text-shadow: 0 1px 4px rgba(0,0,0,.15);
 }
 .gas-step-help {
-  color: #64748b;
+  color: rgba(255,255,255,.75);
   font-style: italic;
 }
 .gas-confirm {
-  color: #7dd3fc;
+  color: #fff;
   font-weight: 700;
   letter-spacing: .04em;
   text-transform: uppercase;
   font-size: 12px;
+  text-shadow: 0 1px 3px rgba(0,0,0,.2);
 }
 
 /* Gas card grid */
@@ -632,8 +671,8 @@ footer.builder-foot {
   align-items: center;
   gap: 8px;
   padding: 22px 12px 18px;
-  background: rgba(255,255,255,.04);
-  border: 1.5px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.18);
+  border: 1.5px solid rgba(255,255,255,.30);
   border-radius: 14px;
   cursor: pointer;
   transition: all .15s ease;
@@ -641,59 +680,51 @@ footer.builder-foot {
   outline: none;
 }
 .gas-card:hover {
-  border-color: var(--gas-color, #7dd3fc);
-  background: rgba(255,255,255,.08);
+  background: rgba(255,255,255,.32);
+  border-color: rgba(255,255,255,.7);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,.35);
+  box-shadow: 0 6px 20px rgba(0,0,0,.18);
 }
 .gas-card.selected {
-  border-color: var(--gas-color, #7dd3fc);
-  background: rgba(255,255,255,.10);
-  box-shadow: 0 0 0 3px rgba(255,255,255,.08), 0 6px 24px rgba(0,0,0,.4);
+  background: #fff;
+  border-color: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,.2), 0 0 0 3px rgba(255,255,255,.4);
+  transform: translateY(-1px);
 }
 .gas-card:focus-visible {
-  outline: 2px solid var(--gas-color, #7dd3fc);
+  outline: 2px solid #fff;
   outline-offset: 2px;
 }
-
-/* Per-gas accent colors */
-.gas-card[data-gas="Oxygen"]   { --gas-color: #38bdf8; }
-.gas-card[data-gas="Argon"]    { --gas-color: #a78bfa; }
-.gas-card[data-gas="Nitrogen"] { --gas-color: #34d399; }
-.gas-card[data-gas="CO2"]      { --gas-color: #fb923c; }
 
 .gas-symbol {
   font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
   font-size: 34px;
   font-weight: 800;
   line-height: 1;
-  color: var(--gas-color, #e2e8f0);
+  color: #fff;
   letter-spacing: -.02em;
   transition: color .15s;
 }
-.gas-card:hover .gas-symbol,
-.gas-card.selected .gas-symbol { color: var(--gas-color); }
+.gas-card.selected .gas-symbol { color: var(--rmi-blue-bright); }
 
 .gas-name {
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .12em;
-  color: rgba(255,255,255,.55);
+  color: rgba(255,255,255,.75);
   transition: color .15s;
 }
-.gas-card:hover .gas-name,
-.gas-card.selected .gas-name { color: rgba(255,255,255,.85); }
+.gas-card.selected .gas-name { color: var(--rmi-blue-dark); }
 
 .gas-desc {
   font-size: 10.5px;
-  color: rgba(255,255,255,.35);
+  color: rgba(255,255,255,.6);
   text-align: center;
   line-height: 1.4;
   transition: color .15s;
 }
-.gas-card:hover .gas-desc,
-.gas-card.selected .gas-desc { color: rgba(255,255,255,.6); }
+.gas-card.selected .gas-desc { color: var(--ink-soft); }
 
 /* Gas card responsive */
 @media (max-width: 640px) {
@@ -704,6 +735,14 @@ footer.builder-foot {
 @media (max-width: 380px) {
   .gas-symbol { font-size: 24px; }
   .gas-desc { display: none; }
+}
+
+/* Header logo responsive */
+@media (max-width: 600px) {
+  .head-logos { display: none; }         /* hide logos on small phones to save space */
+}
+@media (max-width: 420px) {
+  .head-left { gap: 10px; }
 }
 
 /* =============================================================

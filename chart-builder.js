@@ -1092,6 +1092,29 @@ function showError(msg) {
   area.appendChild(box);
 }
 
+// Keep the summary max-height in sync with the viewport so the internal
+// scroll always works correctly, and enforce align-self:start for grids
+// that may have been overridden by a parent stylesheet (Webflow, etc.).
+function initSummarySticky() {
+  const summary = document.getElementById('summary');
+  if (!summary) return;
+
+  function refresh() {
+    const wide = window.innerWidth >= 900;
+    if (wide) {
+      summary.style.maxHeight = (window.innerHeight - 32) + 'px';
+      summary.style.alignSelf = 'start';
+    } else {
+      summary.style.maxHeight = '';
+      summary.style.alignSelf = '';
+    }
+  }
+
+  window.addEventListener('scroll', refresh, { passive: true });
+  window.addEventListener('resize', refresh, { passive: true });
+  refresh();
+}
+
 async function init() {
   try {
     await loadData();
@@ -1109,6 +1132,7 @@ async function init() {
   $('#contact-btn').addEventListener('click', openContactModal);
   $('#pdf-btn').addEventListener('click', handlePdf);
 
+  initSummarySticky();
   render();
 }
 
