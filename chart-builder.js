@@ -249,13 +249,30 @@ function render() {
 }
 
 // =============================================================
+// Shared step-head helper (tag pill + optional Edit button)
+// =============================================================
+function makeStepHead(tagLabel, isDone, onEdit) {
+  const row = el('div', {class: 'step-head-row'});
+  row.appendChild(el('span', {class: 'step-tag'}, tagLabel));
+  if (isDone && onEdit) {
+    const btn = el('button', {class: 'edit-btn', type: 'button', onclick: onEdit}, 'Edit');
+    row.appendChild(btn);
+  }
+  return row;
+}
+
+// =============================================================
 // Gas Type Panel (Step 1)
 // =============================================================
 function renderGasTypePanel() {
   const isDone = !!state.gasType;
   const panel = el('section', {class: 'panel gas-type-panel' + (isDone ? ' done' : '')});
 
-  panel.appendChild(el('span', {class: 'step-tag gas-step-tag'}, 'Begin'));
+  panel.appendChild(makeStepHead('Begin', isDone, () => {
+    state.gasType = state.productType = state.size = state.pressureClass = state.tank = null;
+    state.stepSelections = {}; state.addOns = {};
+    render(); window.scrollTo({top: 0, behavior: 'smooth'});
+  }));
   panel.appendChild(el('h2', {class: 'step-title gas-step-title'}, 'Select Gas Type'));
   panel.appendChild(el('p', {class: 'step-help gas-step-help'}, 'Pick your gas. Everything downstream follows.'));
 
@@ -311,7 +328,11 @@ const PRODUCT_TYPES = [
 function renderProductTypePanel() {
   const isDone = !!state.productType;
   const panel = el('section', {class: 'panel product-type-panel' + (isDone ? ' done' : '')});
-  panel.appendChild(el('span', {class: 'step-tag'}, 'Next Step'));
+  panel.appendChild(makeStepHead('Next Step', isDone, () => {
+    state.productType = state.size = state.pressureClass = state.tank = null;
+    state.stepSelections = {}; state.addOns = {};
+    render(); scrollToNext();
+  }));
   panel.appendChild(el('h2', {class: 'step-title'}, 'What Are You Looking For?'));
   panel.appendChild(el('p', {class: 'step-help'}, 'Choose a product category to see matching tanks.'));
 
@@ -349,7 +370,11 @@ function renderProductTypePanel() {
 function renderSizePanel() {
   const groups = tanksBySize();
   const panel = el('section', {class: 'panel' + (state.size ? ' done' : '')});
-  panel.appendChild(el('span', {class: 'step-tag'}, 'Next Step'));
+  panel.appendChild(makeStepHead('Next Step', !!state.size, () => {
+    state.size = state.pressureClass = state.tank = null;
+    state.stepSelections = {}; state.addOns = {};
+    render(); scrollToNext();
+  }));
   panel.appendChild(el('h2', {class: 'step-title'}, 'Choose a Tank Size'));
   panel.appendChild(el('p', {class: 'step-help'}, 'Available sizes for ' + state.gasType + ' service.'));
 
@@ -389,7 +414,11 @@ function renderPressurePanel() {
   }
 
   const panel = el('section', {class: 'panel' + (state.tank ? ' done' : '')});
-  panel.appendChild(el('span', {class: 'step-tag'}, 'Next Step'));
+  panel.appendChild(makeStepHead('Next Step', !!state.tank, () => {
+    state.tank = state.pressureClass = null;
+    state.stepSelections = {}; state.addOns = {};
+    render(); scrollToNext();
+  }));
   panel.appendChild(el('h2', {class: 'step-title'}, 'Choose Pressure & Fill Type'));
   panel.appendChild(el('p', {class: 'step-help'}, 'Available variants for the ' + state.size + '.'));
 
@@ -432,28 +461,67 @@ function renderHeroPanel() {
 // =============================================================
 // Config Step Panel (Step 4+)
 // =============================================================
+function makeOptBtn(o, isSelected, onSelect) {
+  const btn = el('button', {
+    class: 'opt-btn' + (isSelected ? ' selected' : ''),
+    type: 'button',
+    onclick: onSelect,
+  });
+  btn.appendChild(el('span', {}, o.label));
+  btn.appendChild(el('span', {class: 'pn'}, o.partNumber));
+  return btn;
+}
+
 function renderStepPanel(step, originalIdx) {
   const effectiveOptions = getEffectiveOptions(step, originalIdx);
   const isAnswered = !!state.stepSelections[originalIdx];
-  const useList = effectiveOptions.length > 5 || effectiveOptions.some(o => (o.label || '').length > 40);
   const panel = el('section', {class: 'panel' + (isAnswered ? ' done' : '')});
-  panel.appendChild(el('span', {class: 'step-tag'}, 'Next Step'));
+
+  panel.appendChild(makeStepHead('Next Step', isAnswered, () => {
+    // Clear this step and all later steps
+    const keys = Object.keys(state.stepSelections).map(Number).filter(k => k >= originalIdx);
+    keys.forEach(k => delete state.stepSelections[k]);
+    state.addOns = {};
+    render(); scrollToNext();
+  }));
   panel.appendChild(el('h2', {class: 'step-title'}, step.stepName));
 
   const body = el('div', {class: 'step-body'});
-  const container = el('div', {class: useList ? 'opt-list' : 'button-grid'});
-  for (const o of effectiveOptions) {
-    const isSel = state.stepSelections[originalIdx] && state.stepSelections[originalIdx].partNumber === o.partNumber;
-    const btn = el('button', {
-      class: 'opt-btn' + (isSel ? ' selected' : ''),
-      type: 'button',
-      onclick: () => selectStep(originalIdx, o),
+
+  // Special grouped layout for Fittings Configuration
+  const isFittings = step.stepName === 'Fittings Configuration';
+  const abOpts  = isFittings ? effectiveOptions.filter(o => !o.label.includes('SDC')) : [];
+  const sdcOpts = isFittings ? effectiveOptions.filter(o =>  o.label.includes('SDC')) : [];
+
+  if (isFittings && abOpts.length && sdcOpts.length) {
+    const groups = el('div', {class: 'fittings-groups'});
+
+    const abGroup = el('div', {class: 'fittings-group'});
+    abGroup.appendChild(el('span', {class: 'fittings-group-label'}, 'Standard A&B'));
+    abOpts.forEach(o => {
+      const isSel = isAnswered && state.stepSelections[originalIdx].partNumber === o.partNumber;
+      abGroup.appendChild(makeOptBtn(o, isSel, () => selectStep(originalIdx, o)));
     });
-    btn.appendChild(el('span', {}, o.label));
-    btn.appendChild(el('span', {class: 'pn'}, o.partNumber));
-    container.appendChild(btn);
+
+    const sdcGroup = el('div', {class: 'fittings-group'});
+    sdcGroup.appendChild(el('span', {class: 'fittings-group-label'}, 'SDC Fittings'));
+    sdcOpts.forEach(o => {
+      const isSel = isAnswered && state.stepSelections[originalIdx].partNumber === o.partNumber;
+      sdcGroup.appendChild(makeOptBtn(o, isSel, () => selectStep(originalIdx, o)));
+    });
+
+    groups.append(abGroup, sdcGroup);
+    body.appendChild(groups);
+  } else {
+    const useList = effectiveOptions.length > 5 || effectiveOptions.some(o => (o.label || '').length > 40);
+    const container = el('div', {class: useList ? 'opt-list' : 'button-grid'});
+    effectiveOptions.forEach(o => {
+      const isSel = isAnswered && state.stepSelections[originalIdx].partNumber === o.partNumber;
+      container.appendChild(makeOptBtn(o, isSel, () => selectStep(originalIdx, o)));
+    });
+    body.appendChild(container);
   }
-  body.appendChild(container);
+
   panel.appendChild(body);
 
   if (isAnswered) {
