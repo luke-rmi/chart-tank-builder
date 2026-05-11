@@ -34,7 +34,8 @@ const GAS_TYPES = [
 // State
 // =============================================================
 const state = {
-  gasType: null,         // new — chosen before size
+  gasType: null,         // chosen first
+  productType: null,     // 'liquid' | 'microbulk' — chosen after gas type
   size: null,
   pressureClass: null,
   tank: null,
@@ -72,30 +73,43 @@ function showToast(msg) {
   window._toastTimer = setTimeout(() => t.classList.remove('show'), 1800);
 }
 
-// Filter tanks by selected gas type:
-//   CO2 → show only permamax tanks; others → show non-permamax.
+// Filter tanks by product type and gas type.
 function tanksBySize() {
   const groups = {};
   for (const t of CHART_DATA.tanks) {
+    const tType = t.productType || 'microbulk';
+    // Filter by product type if selected
+    if (state.productType && tType !== state.productType) continue;
+    // Filter by gas type if selected
     if (state.gasType) {
-      const isCO2 = t.id.startsWith('permamax');
-      if (state.gasType === 'CO2' && !isCO2) continue;
-      if (state.gasType !== 'CO2' && isCO2) continue;
+      if (t.gas) {
+        // Liquid cylinders carry an explicit gas field
+        if (t.gas !== state.gasType) continue;
+      } else {
+        // Microbulk: CO2 maps to permamax, others to non-permamax
+        const isCO2 = t.id.startsWith('permamax');
+        if (state.gasType === 'CO2' && !isCO2) continue;
+        if (state.gasType !== 'CO2' && isCO2) continue;
+      }
     }
     (groups[t.size] ??= []).push(t);
   }
   return groups;
 }
 
-const SIZE_ORDER = ['230L','450L','700L','1000L','1500L','2000L','3000L','5500L','7000L','Perma-Max'];
+const SIZE_ORDER = {
+  microbulk: ['230L','450L','700L','1000L','1500L','2000L','3000L','5500L','7000L','Perma-Max'],
+  liquid:    ['50L','120L','180L','200L','230L · Round Base','230L · Square Base','265L · Square Base','450L','1000L'],
+};
 
 const PRESSURE_LABELS = {
-  'MP': 'MP · 250 PSI',
-  'HP': 'HP · 350 PSI',
-  'VHP': 'VHP · 500 PSI',
+  'LP':     'LP · Low Pressure',
+  'MP':     'MP · Medium Pressure',
+  'HP':     'HP · High Pressure',
+  'VHP':    'VHP · Very High Pressure',
   'ZX-VHP': 'ZX-VHP · 500 PSI Skid',
-  'HP-CO2': 'HP CO₂ · 350 PSI',
-  'VHP-CO2': 'VHP CO₂ · 500 PSI',
+  'HP-CO2': 'HP CO₂',
+  'VHP-CO2':'VHP CO₂',
 };
 
 // =============================================================
@@ -120,11 +134,22 @@ function gskOptionGas(option) {
 }
 
 // Return the effective (gas-filtered) options for a step.
-// Only Gas Service Label Kit steps are filtered; all others are unchanged.
 function getEffectiveOptions(step, idx) {
   if (!state.gasType) return step.options;
+
+  // Medical Service Labeling — filter to the matching gas (None always kept)
+  if (step.stepName.toLowerCase().includes('medical')) {
+    return step.options.filter(o => {
+      if (!o.partNumber) return true; // "None" always shown
+      const pn = o.partNumber.toUpperCase();
+      if (pn.includes('OXYUSP')) return state.gasType === 'Oxygen';
+      if (pn.includes('NNF'))    return state.gasType === 'Nitrogen';
+      return true;
+    });
+  }
+
+  // Gas Service Label Kit — filter by gas code in part number / label
   if (!step.stepName.toLowerCase().includes('gas service')) return step.options;
-  // Check if any option carries a gas code; if none do (e.g. permamax service types), return all.
   const hasCoded = step.options.some(o => gskOptionGas(o) !== null);
   if (!hasCoded) return step.options;
   return step.options.filter(o => {
@@ -194,10 +219,13 @@ function render() {
   // Step 1 — Gas Type (always visible)
   area.appendChild(renderGasTypePanel());
 
-  // Step 2 — Size (only after gas type chosen)
-  if (state.gasType) area.appendChild(renderSizePanel());
+  // Step 2 — Product Type (after gas type)
+  if (state.gasType) area.appendChild(renderProductTypePanel());
 
-  // Step 3 — Pressure & Fill (only after size chosen)
+  // Step 3 — Size (after product type)
+  if (state.productType) area.appendChild(renderSizePanel());
+
+  // Step 4 — Pressure & Fill (after size)
   if (state.size) area.appendChild(renderPressurePanel());
 
   if (state.tank) {
@@ -206,16 +234,15 @@ function render() {
     // Hero image panel
     if (state.tank.heroImage) area.appendChild(renderHeroPanel());
 
-    // Visible config steps (single-option steps are auto-selected & hidden)
+    // Visible config steps
     const visible = visibleStepsFor(state.tank);
-    let visibleIdx = 0;
     visible.forEach(([originalIdx, step]) => {
-      area.appendChild(renderStepPanel(step, originalIdx, visibleIdx + 4)); // steps 1-3 are gas/size/pressure
-      visibleIdx++;
+      area.appendChild(renderStepPanel(step, originalIdx));
     });
 
-    // Add-ons
-    area.appendChild(renderAddOnsPanel());
+    // Add-ons (null when tank has no applicable options)
+    const addOnsPanel = renderAddOnsPanel();
+    if (addOnsPanel) area.appendChild(addOnsPanel);
   }
 
   renderSummary();
@@ -228,7 +255,7 @@ function renderGasTypePanel() {
   const isDone = !!state.gasType;
   const panel = el('section', {class: 'panel gas-type-panel' + (isDone ? ' done' : '')});
 
-  panel.appendChild(el('span', {class: 'step-tag gas-step-tag'}, 'Step 1'));
+  panel.appendChild(el('span', {class: 'step-tag gas-step-tag'}, 'Begin'));
   panel.appendChild(el('h2', {class: 'step-title gas-step-title'}, 'Select Gas Type'));
   panel.appendChild(el('p', {class: 'step-help gas-step-help'}, 'Pick your gas. Everything downstream follows.'));
 
@@ -264,18 +291,72 @@ function renderGasTypePanel() {
 }
 
 // =============================================================
-// Size Panel (Step 2)
+// Product Type Panel (Step 2)
+// =============================================================
+const PRODUCT_TYPES = [
+  {
+    id: 'liquid',
+    label: 'LIQUID CYLINDERS',
+    desc: 'Dura-Cyl · Laser-Cyl · Mega-Cyl · Cryo-Cyl',
+    sub:  'Portable dewars for delivery & on-site use',
+  },
+  {
+    id: 'microbulk',
+    label: 'MICROBULK STORAGE',
+    desc: 'Perma-Cyl® · Perma-Max®',
+    sub:  'Stationary on-site supply systems',
+  },
+];
+
+function renderProductTypePanel() {
+  const isDone = !!state.productType;
+  const panel = el('section', {class: 'panel product-type-panel' + (isDone ? ' done' : '')});
+  panel.appendChild(el('span', {class: 'step-tag'}, 'Next Step'));
+  panel.appendChild(el('h2', {class: 'step-title'}, 'What Are You Looking For?'));
+  panel.appendChild(el('p', {class: 'step-help'}, 'Choose a product category to see matching tanks.'));
+
+  const body = el('div', {class: 'step-body'});
+  const grid = el('div', {class: 'product-type-grid'});
+
+  for (const p of PRODUCT_TYPES) {
+    const isSel = state.productType === p.id;
+    const card = el('div', {
+      class: 'product-card' + (isSel ? ' selected' : ''),
+      role: 'button',
+      tabindex: '0',
+      onclick: () => selectProductType(p.id),
+      onkeydown: (e) => { if (e.key === 'Enter' || e.key === ' ') selectProductType(p.id); },
+    });
+    card.appendChild(el('span', {class: 'product-label'}, p.label));
+    card.appendChild(el('span', {class: 'product-desc'}, p.desc));
+    card.appendChild(el('span', {class: 'product-sub'}, p.sub));
+    grid.appendChild(card);
+  }
+
+  body.appendChild(grid);
+  panel.appendChild(body);
+
+  if (isDone) {
+    const info = PRODUCT_TYPES.find(p => p.id === state.productType);
+    panel.appendChild(el('p', {class: 'step-confirm'}, '✓ ' + (info ? info.label : state.productType)));
+  }
+  return panel;
+}
+
+// =============================================================
+// Size Panel (Step 3)
 // =============================================================
 function renderSizePanel() {
   const groups = tanksBySize();
   const panel = el('section', {class: 'panel' + (state.size ? ' done' : '')});
-  panel.appendChild(el('span', {class: 'step-tag'}, 'Step 2'));
+  panel.appendChild(el('span', {class: 'step-tag'}, 'Next Step'));
   panel.appendChild(el('h2', {class: 'step-title'}, 'Choose a Tank Size'));
   panel.appendChild(el('p', {class: 'step-help'}, 'Available sizes for ' + state.gasType + ' service.'));
 
   const body = el('div', {class: 'step-body'});
   const grid = el('div', {class: 'button-grid'});
-  for (const sz of SIZE_ORDER) {
+  const sizeOrder = SIZE_ORDER[state.productType] || SIZE_ORDER.microbulk;
+  for (const sz of sizeOrder) {
     if (!groups[sz]) continue;
     const variants = [...new Set(groups[sz].map(t => t.pressureClass))];
     const btn = el('button', {
@@ -308,7 +389,7 @@ function renderPressurePanel() {
   }
 
   const panel = el('section', {class: 'panel' + (state.tank ? ' done' : '')});
-  panel.appendChild(el('span', {class: 'step-tag'}, 'Step 3'));
+  panel.appendChild(el('span', {class: 'step-tag'}, 'Next Step'));
   panel.appendChild(el('h2', {class: 'step-title'}, 'Choose Pressure & Fill Type'));
   panel.appendChild(el('p', {class: 'step-help'}, 'Available variants for the ' + state.size + '.'));
 
@@ -351,12 +432,12 @@ function renderHeroPanel() {
 // =============================================================
 // Config Step Panel (Step 4+)
 // =============================================================
-function renderStepPanel(step, originalIdx, displayedStepNum) {
+function renderStepPanel(step, originalIdx) {
   const effectiveOptions = getEffectiveOptions(step, originalIdx);
   const isAnswered = !!state.stepSelections[originalIdx];
   const useList = effectiveOptions.length > 5 || effectiveOptions.some(o => (o.label || '').length > 40);
   const panel = el('section', {class: 'panel' + (isAnswered ? ' done' : '')});
-  panel.appendChild(el('span', {class: 'step-tag'}, 'Step ' + displayedStepNum));
+  panel.appendChild(el('span', {class: 'step-tag'}, 'Next Step'));
   panel.appendChild(el('h2', {class: 'step-title'}, step.stepName));
 
   const body = el('div', {class: 'step-body'});
@@ -409,11 +490,12 @@ function resolveVariants(opt, tank) {
 // =============================================================
 function renderAddOnsPanel() {
   const tank = state.tank;
-  const visibleConfigSteps = visibleStepsFor(tank).length;
-  const addOnStepNum = 3 + visibleConfigSteps + 1; // steps 1(gas)+2(size)+3(pressure)+config+this
+
+  // No add-ons for liquid cylinders (accessories handled via config steps)
+  if (!tank.applicableOptions || tank.applicableOptions.length === 0) return null;
 
   const panel = el('section', {class: 'panel'});
-  panel.appendChild(el('span', {class: 'step-tag'}, 'Step ' + addOnStepNum));
+  panel.appendChild(el('span', {class: 'step-tag'}, 'Next Step'));
   panel.appendChild(el('h2', {class: 'step-title'}, 'Optional Accessories'));
   panel.appendChild(el('p', {class: 'step-help'},
     'Items shown apply to the ' + tank.displayName + '. Standard items are auto-included.'));
@@ -528,9 +610,10 @@ function renderSummary() {
   const heroSlot = $('#sum-hero');
 
   if (!state.tank) {
-    sub.textContent = state.gasType
-      ? 'Choose a size to continue.'
-      : 'Select a gas type to begin.';
+    sub.textContent = !state.gasType ? 'Select a gas type to begin.'
+      : !state.productType         ? 'Choose a product category.'
+      : !state.size                ? 'Choose a tank size.'
+      : 'Choose a pressure & fill type.';
     body.innerHTML = '<div class="empty">No selections yet</div>';
     actions.style.display = 'none';
     if (heroSlot) heroSlot.innerHTML = '';
@@ -560,8 +643,11 @@ function renderSummary() {
 
   if (state.gasType) {
     const gasInfo = GAS_TYPES.find(g => g.id === state.gasType);
-    const gasItem = makeSumItem('Gas Service: ' + (gasInfo ? gasInfo.label : state.gasType), '');
-    sec2.appendChild(gasItem);
+    sec2.appendChild(makeSumItem('Gas Service: ' + (gasInfo ? gasInfo.label : state.gasType), ''));
+  }
+  if (state.productType) {
+    const ptInfo = PRODUCT_TYPES.find(p => p.id === state.productType);
+    sec2.appendChild(makeSumItem('Product Type: ' + (ptInfo ? ptInfo.label : state.productType), ''));
   }
 
   let any = !!state.gasType;
@@ -625,6 +711,19 @@ function makeSumItem(label, partNumber) {
 function selectGasType(gas) {
   if (state.gasType === gas) return;
   state.gasType = gas;
+  state.productType = null;
+  state.size = null;
+  state.pressureClass = null;
+  state.tank = null;
+  state.stepSelections = {};
+  state.addOns = {};
+  render();
+  scrollToNext();
+}
+
+function selectProductType(type) {
+  if (state.productType === type) return;
+  state.productType = type;
   state.size = null;
   state.pressureClass = null;
   state.tank = null;
@@ -703,6 +802,10 @@ function buildPlainSummary() {
   if (state.gasType) {
     const gasInfo = GAS_TYPES.find(g => g.id === state.gasType);
     lines.push('Gas Service: ' + (gasInfo ? gasInfo.label : state.gasType));
+  }
+  if (state.productType) {
+    const ptInfo = PRODUCT_TYPES.find(p => p.id === state.productType);
+    lines.push('Product Type: ' + (ptInfo ? ptInfo.label : state.productType));
   }
   lines.push('Tank: ' + state.tank.displayName);
   lines.push('Pressure: ' + state.tank.psiRating);
@@ -1106,7 +1209,7 @@ function confirmRestart(onConfirm) {
 function handleRestart() {
   if (state.tank) {
     confirmRestart(() => {
-      state.gasType = state.size = state.pressureClass = state.tank = null;
+      state.gasType = state.productType = state.size = state.pressureClass = state.tank = null;
       state.stepSelections = {};
       state.addOns = {};
       render();
@@ -1114,7 +1217,7 @@ function handleRestart() {
     });
     return;
   }
-  state.gasType = state.size = state.pressureClass = state.tank = null;
+  state.gasType = state.productType = state.size = state.pressureClass = state.tank = null;
   state.stepSelections = {};
   state.addOns = {};
   render();

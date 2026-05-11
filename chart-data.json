@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "version": "2.2",
+    "version": "2.3",
     "generated_by": "xlsx_to_json.py",
     "tankCount": 31,
     "issues": []
@@ -185,7 +185,8 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "450L-HP-DOT",
@@ -361,7 +362,8 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "450L-HP-ASME",
@@ -645,7 +647,8 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "450L-VHP-DOT",
@@ -914,7 +917,8 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "450L-VHP-ASME",
@@ -1208,7 +1212,8 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "450L-ZX-VHP",
@@ -1390,7 +1395,8 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "700L-HP-TF",
@@ -1674,7 +1680,8 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "1000L-HP-TF",
@@ -1961,7 +1968,8 @@
       },
       "vjvLeft": {
         "partNumber": "PERMA-20858365-HP1000-VJVL"
-      }
+      },
+      "productType": "microbulk"
     },
     {
       "id": "1000L-VHP-TF",
@@ -2262,7 +2270,8 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "1000L-VHP-FF",
@@ -2358,17 +2367,17 @@
           "selectionType": "single",
           "options": [
             {
-              "label": "Argon* KIT/SRV/LBL PERMA \u2013 FLEXFILL",
+              "label": "Argon* KIT/SRV/LBL PERMA – FLEXFILL",
               "partNumber": "PERMA-20868907-GSK-AR",
               "notes": ""
             },
             {
-              "label": "Nitrogen* KIT/SRV/LBL PERMA \u2013 FLEXFILL",
+              "label": "Nitrogen* KIT/SRV/LBL PERMA – FLEXFILL",
               "partNumber": "PERMA-20868906-GSK-NI",
               "notes": ""
             },
             {
-              "label": "Oxygen* KIT/SRV/LBL PERMA \u2013 FLEXFILL",
+              "label": "Oxygen* KIT/SRV/LBL PERMA – FLEXFILL",
               "partNumber": "PERMA-20868908-GSK-OX",
               "notes": ""
             }
@@ -2498,7 +2507,8 @@
           "standard": false,
           "notes": "Optional. Match to gas service."
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "1500L-HP-TF",
@@ -2790,7 +2800,8 @@
       },
       "vjvLeft": {
         "partNumber": "PERMA-20858388-HP1500-VJVL"
-      }
+      },
+      "productType": "microbulk"
     },
     {
       "id": "1500L-VHP-TF",
@@ -3091,7 +3102,8 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "1500L-VHP-FF",
@@ -3187,17 +3199,17 @@
           "selectionType": "single",
           "options": [
             {
-              "label": "Argon* KIT/SRV/LBL PERMA \u2013 FLEXFILL",
+              "label": "Argon* KIT/SRV/LBL PERMA – FLEXFILL",
               "partNumber": "PERMA-20868907-GSK-AR",
               "notes": ""
             },
             {
-              "label": "Nitrogen* KIT/SRV/LBL PERMA \u2013 FLEXFILL",
+              "label": "Nitrogen* KIT/SRV/LBL PERMA – FLEXFILL",
               "partNumber": "PERMA-20868906-GSK-NI",
               "notes": ""
             },
             {
-              "label": "Oxygen* KIT/SRV/LBL PERMA \u2013 FLEXFILL",
+              "label": "Oxygen* KIT/SRV/LBL PERMA – FLEXFILL",
               "partNumber": "PERMA-20868908-GSK-OX",
               "notes": ""
             }
@@ -3327,7 +3339,8 @@
           "standard": false,
           "notes": "Optional. Match to gas service."
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "1500L-ZX-VHP",
@@ -3510,7 +3523,8 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "2000L-HP-TF",
@@ -3807,7 +3821,8 @@
       },
       "vjvLeft": {
         "partNumber": "PERMA-20858392-HP2000-VJVL"
-      }
+      },
+      "productType": "microbulk"
     },
     {
       "id": "2000L-HP-FF",
@@ -3852,17 +3867,17 @@
           "selectionType": "single",
           "options": [
             {
-              "label": "Argon* KIT/SRV/LBL PERMA \u2013 FLEXFILL",
+              "label": "Argon* KIT/SRV/LBL PERMA – FLEXFILL",
               "partNumber": "PERMA-20868907-GSK-AR",
               "notes": ""
             },
             {
-              "label": "Nitrogen* KIT/SRV/LBL PERMA \u2013 FLEXFILL",
+              "label": "Nitrogen* KIT/SRV/LBL PERMA – FLEXFILL",
               "partNumber": "PERMA-20868906-GSK-NI",
               "notes": ""
             },
             {
-              "label": "Oxygen* KIT/SRV/LBL PERMA \u2013 FLEXFILL",
+              "label": "Oxygen* KIT/SRV/LBL PERMA – FLEXFILL",
               "partNumber": "PERMA-20868908-GSK-OX",
               "notes": ""
             }
@@ -3992,7 +4007,8 @@
           "standard": false,
           "notes": "Optional. Match to gas service."
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "2000L-VHP-TF",
@@ -4273,7 +4289,8 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "2000L-VHP-FF",
@@ -4369,17 +4386,17 @@
           "selectionType": "single",
           "options": [
             {
-              "label": "Argon* KIT/SRV/LBL PERMA \u2013 FLEXFILL",
+              "label": "Argon* KIT/SRV/LBL PERMA – FLEXFILL",
               "partNumber": "PERMA-20868907-GSK-AR",
               "notes": ""
             },
             {
-              "label": "Nitrogen* KIT/SRV/LBL PERMA \u2013 FLEXFILL",
+              "label": "Nitrogen* KIT/SRV/LBL PERMA – FLEXFILL",
               "partNumber": "PERMA-20868906-GSK-NI",
               "notes": ""
             },
             {
-              "label": "Oxygen* KIT/SRV/LBL PERMA \u2013 FLEXFILL",
+              "label": "Oxygen* KIT/SRV/LBL PERMA – FLEXFILL",
               "partNumber": "PERMA-20868908-GSK-OX",
               "notes": ""
             }
@@ -4509,7 +4526,8 @@
           "standard": false,
           "notes": "Optional. Match to gas service."
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "3000L-HP-TF",
@@ -4806,7 +4824,8 @@
       },
       "vjvLeft": {
         "partNumber": "PERMA-20858395-HP3000-VJV"
-      }
+      },
+      "productType": "microbulk"
     },
     {
       "id": "3000L-HP-FF",
@@ -4851,17 +4870,17 @@
           "selectionType": "single",
           "options": [
             {
-              "label": "Argon* KIT/SRV/LBL PERMA \u2013 FLEXFILL",
+              "label": "Argon* KIT/SRV/LBL PERMA – FLEXFILL",
               "partNumber": "PERMA-20868907-GSK-AR",
               "notes": ""
             },
             {
-              "label": "Nitrogen* KIT/SRV/LBL PERMA \u2013 FLEXFILL",
+              "label": "Nitrogen* KIT/SRV/LBL PERMA – FLEXFILL",
               "partNumber": "PERMA-20868906-GSK-NI",
               "notes": ""
             },
             {
-              "label": "Oxygen* KIT/SRV/LBL PERMA \u2013 FLEXFILL",
+              "label": "Oxygen* KIT/SRV/LBL PERMA – FLEXFILL",
               "partNumber": "PERMA-20868908-GSK-OX",
               "notes": ""
             }
@@ -4991,7 +5010,8 @@
           "standard": false,
           "notes": "Optional. Match to gas service."
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "3000L-VHP-TF",
@@ -5272,7 +5292,8 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "3000L-VHP-FF",
@@ -5368,17 +5389,17 @@
           "selectionType": "single",
           "options": [
             {
-              "label": "Argon* KIT/SRV/LBL PERMA \u2013 FLEXFILL",
+              "label": "Argon* KIT/SRV/LBL PERMA – FLEXFILL",
               "partNumber": "PERMA-20868907-GSK-AR",
               "notes": ""
             },
             {
-              "label": "Nitrogen* KIT/SRV/LBL PERMA \u2013 FLEXFILL",
+              "label": "Nitrogen* KIT/SRV/LBL PERMA – FLEXFILL",
               "partNumber": "PERMA-20868906-GSK-NI",
               "notes": ""
             },
             {
-              "label": "Oxygen* KIT/SRV/LBL PERMA \u2013 FLEXFILL",
+              "label": "Oxygen* KIT/SRV/LBL PERMA – FLEXFILL",
               "partNumber": "PERMA-20868908-GSK-OX",
               "notes": ""
             }
@@ -5508,7 +5529,8 @@
           "standard": false,
           "notes": "Optional. Match to gas service."
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "3000L-ZX-VHP",
@@ -5691,7 +5713,8 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "5500L-MP-FF",
@@ -5924,7 +5947,8 @@
       },
       "vjvLeft": {
         "partNumber": "PERMA-21891165-MP5500-VJVL-FF"
-      }
+      },
+      "productType": "microbulk"
     },
     {
       "id": "5500L-VHP-FF",
@@ -6167,7 +6191,8 @@
           "standard": false,
           "notes": "Optional. Match to gas service."
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "7000L-VHP-FF",
@@ -6409,7 +6434,8 @@
           "standard": false,
           "notes": "Optional. Match to gas service."
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "permamax-2200lb-HP-CO2",
@@ -6608,7 +6634,8 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "permamax-3300lb-HP-CO2",
@@ -6807,7 +6834,8 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "permamax-4400lb-HP-CO2",
@@ -7016,7 +7044,8 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "permamax-6000lb-HP-CO2",
@@ -7231,7 +7260,8 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "productType": "microbulk"
     },
     {
       "id": "permamax-12000lb-VHP-CO2",
@@ -7446,7 +7476,3692 @@
           "standard": false,
           "notes": "FlexFill only"
         }
-      ]
+      ],
+      "productType": "microbulk"
+    },
+    {
+      "id": "cryocyl-50L-LP-NI",
+      "displayName": "Cryo-Cyl® 50L LP",
+      "size": "50L",
+      "pressureClass": "LP",
+      "fillType": "N/A",
+      "psiRating": "22 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Nitrogen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page08.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10980663-LP50-RB-NI",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10980663-LP50-RB-NI-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-120L-LP-SB-NI",
+      "displayName": "Dura-Cyl® 120L LP",
+      "size": "120L",
+      "pressureClass": "LP",
+      "fillType": "N/A",
+      "psiRating": "22 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Nitrogen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page07.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-21524496-LP120-SB-NI",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-21524496-LP120-SB-NI-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "Roto-Tel™ Liquid Level Gauge",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-180L-LP-RB-NI",
+      "displayName": "Dura-Cyl® 180L LP",
+      "size": "180L",
+      "pressureClass": "LP",
+      "fillType": "N/A",
+      "psiRating": "22 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Nitrogen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page01.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-21524497-LP180-RB-NI",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-21524497-LP180-RB-NI-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-180L-MP-RB-ar",
+      "displayName": "Dura-Cyl® 180L MP · Ar",
+      "size": "180L",
+      "pressureClass": "MP",
+      "fillType": "N/A",
+      "psiRating": "230 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Argon",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page01.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10508764-MP180-RB-AR",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10508764-MP180-RB-AR-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10508764-MP180-RB-AR-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10508764-MP180-RB-AR-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-180L-MP-RB-ni",
+      "displayName": "Dura-Cyl® 180L MP · N₂",
+      "size": "180L",
+      "pressureClass": "MP",
+      "fillType": "N/A",
+      "psiRating": "230 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Nitrogen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page01.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10508764-MP180-RB-NI",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10508764-MP180-RB-NI-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10508764-MP180-RB-NI-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10508764-MP180-RB-NI-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-180L-MP-RB-ox",
+      "displayName": "Dura-Cyl® 180L MP · Ox",
+      "size": "180L",
+      "pressureClass": "MP",
+      "fillType": "N/A",
+      "psiRating": "230 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Oxygen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page01.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10508764-MP180-RB-OX",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10508764-MP180-RB-OX-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10508764-MP180-RB-OX-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10508764-MP180-RB-OX-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-180L-HP-RB-ar",
+      "displayName": "Dura-Cyl® 180L HP · Argon",
+      "size": "180L",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Argon",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page01.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10496433-HP180-RB-AR",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496433-HP180-RB-AR-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10496433-HP180-RB-AR-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496433-HP180-RB-AR-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-180L-HP-RB-ni",
+      "displayName": "Dura-Cyl® 180L HP · Nitrogen",
+      "size": "180L",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Nitrogen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page01.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10496433-HP180-RB-NI",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496433-HP180-RB-NI-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10496433-HP180-RB-NI-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496433-HP180-RB-NI-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-180L-HP-RB-ox",
+      "displayName": "Dura-Cyl® 180L HP · Oxygen",
+      "size": "180L",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Oxygen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page01.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10496433-HP180-RB-OX",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496433-HP180-RB-OX-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10496433-HP180-RB-OX-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496433-HP180-RB-OX-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-180L-HP-RB-co2",
+      "displayName": "Dura-Cyl® 180L HP · CO₂",
+      "size": "180L",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "CO2",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page01.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard A&B · CGA 622 Vent",
+              "partNumber": "DURA-10496433-HP180-RB-CO2-622",
+              "notes": ""
+            },
+            {
+              "label": "Standard A&B · CGA 295 Vent",
+              "partNumber": "DURA-10496433-HP180-RB-CO2-295",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings · CGA 622 Vent",
+              "partNumber": "DURA-10496433-HP180-RB-CO2-622-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings · CGA 295 Vent",
+              "partNumber": "DURA-10496433-HP180-RB-CO2-295-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-200L-MP-RB-ar",
+      "displayName": "Dura-Cyl® 200L MP · Argon",
+      "size": "200L",
+      "pressureClass": "MP",
+      "fillType": "N/A",
+      "psiRating": "230 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Argon",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page02.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10508772-MP200-RB-AR",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10508772-MP200-RB-AR-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10508772-MP200-RB-AR-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10508772-MP200-RB-AR-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-200L-MP-RB-ni",
+      "displayName": "Dura-Cyl® 200L MP · Nitrogen",
+      "size": "200L",
+      "pressureClass": "MP",
+      "fillType": "N/A",
+      "psiRating": "230 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Nitrogen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page02.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10508772-MP200-RB-NI",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10508772-MP200-RB-NI-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10508772-MP200-RB-NI-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10508772-MP200-RB-NI-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-200L-MP-RB-ox",
+      "displayName": "Dura-Cyl® 200L MP · Oxygen",
+      "size": "200L",
+      "pressureClass": "MP",
+      "fillType": "N/A",
+      "psiRating": "230 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Oxygen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page02.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10508772-MP200-RB-OX",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10508772-MP200-RB-OX-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10508772-MP200-RB-OX-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10508772-MP200-RB-OX-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-200L-HP-RB-ar",
+      "displayName": "Dura-Cyl® 200L HP · Argon",
+      "size": "200L",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Argon",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page02.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10496417-HP200-RB-AR",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496417-HP200-RB-AR-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10496417-HP200-RB-AR-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496417-HP200-RB-AR-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-200L-HP-RB-ni",
+      "displayName": "Dura-Cyl® 200L HP · Nitrogen",
+      "size": "200L",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Nitrogen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page02.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10496417-HP200-RB-NI",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496417-HP200-RB-NI-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10496417-HP200-RB-NI-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496417-HP200-RB-NI-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-200L-HP-RB-ox",
+      "displayName": "Dura-Cyl® 200L HP · Oxygen",
+      "size": "200L",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Oxygen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page02.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10496417-HP200-RB-OX",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496417-HP200-RB-OX-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10496417-HP200-RB-OX-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496417-HP200-RB-OX-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-200L-HP-RB-co2",
+      "displayName": "Dura-Cyl® 200L HP · CO₂",
+      "size": "200L",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "CO2",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page02.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard A&B · CGA 622 Vent",
+              "partNumber": "DURA-10496417-HP200-RB-CO2-622",
+              "notes": ""
+            },
+            {
+              "label": "Standard A&B · CGA 295 Vent",
+              "partNumber": "DURA-10496417-HP200-RB-CO2-295",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings · CGA 622 Vent",
+              "partNumber": "DURA-10496417-HP200-RB-CO2-622-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings · CGA 295 Vent",
+              "partNumber": "DURA-10496417-HP200-RB-CO2-295-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "laser-200L-VHP-ar",
+      "displayName": "Laser-Cyl® 200L VHP · Argon",
+      "size": "200L",
+      "pressureClass": "VHP",
+      "fillType": "N/A",
+      "psiRating": "500 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Argon",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page03.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "LASER-21437026-VHP200-RB-AR",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "LASER-21437026-VHP200-RB-AR-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [],
+      "applicableOptions": []
+    },
+    {
+      "id": "laser-200L-VHP-ni",
+      "displayName": "Laser-Cyl® 200L VHP · Nitrogen",
+      "size": "200L",
+      "pressureClass": "VHP",
+      "fillType": "N/A",
+      "psiRating": "500 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Nitrogen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page03.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "LASER-21437026-VHP200-RB-NI",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "LASER-21437026-VHP200-RB-NI-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [],
+      "applicableOptions": []
+    },
+    {
+      "id": "laser-200L-VHP-ox",
+      "displayName": "Laser-Cyl® 200L VHP · Oxygen",
+      "size": "200L",
+      "pressureClass": "VHP",
+      "fillType": "N/A",
+      "psiRating": "500 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Oxygen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page03.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "LASER-21437026-VHP200-RB-OX",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "LASER-21437026-VHP200-RB-OX-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [],
+      "applicableOptions": []
+    },
+    {
+      "id": "laser-200L-VHP-co2",
+      "displayName": "Laser-Cyl® 200L VHP · CO₂",
+      "size": "200L",
+      "pressureClass": "VHP",
+      "fillType": "N/A",
+      "psiRating": "500 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "CO2",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page03.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard A&B · CGA 622 Vent",
+              "partNumber": "LASER-21437026-VHP200-RB-CO2-622",
+              "notes": ""
+            },
+            {
+              "label": "Standard A&B · CGA 295 Vent",
+              "partNumber": "LASER-21437026-VHP200-RB-CO2-295",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings · CGA 622 Vent",
+              "partNumber": "LASER-21437026-VHP200-RB-CO2-622-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings · CGA 295 Vent",
+              "partNumber": "LASER-21437026-VHP200-RB-CO2-295-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-230L-LP-RB-NI",
+      "displayName": "Dura-Cyl® 230L LP · Round Base",
+      "size": "230L · Round Base",
+      "pressureClass": "LP",
+      "fillType": "N/A",
+      "psiRating": "22 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Nitrogen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page04.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-21524498-LP230-RB-PB-NI",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-21524498-LP230-RB-PB-NI-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-230L-MP-RB-ar",
+      "displayName": "Dura-Cyl® 230L MP · Round Base · Argon",
+      "size": "230L · Round Base",
+      "pressureClass": "MP",
+      "fillType": "N/A",
+      "psiRating": "230 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Argon",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page04.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10602822-MP230-RB-AR",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10602822-MP230-RB-AR-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10602822-MP230-RB-AR-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10602822-MP230-RB-AR-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-230L-MP-RB-ni",
+      "displayName": "Dura-Cyl® 230L MP · Round Base · Nitrogen",
+      "size": "230L · Round Base",
+      "pressureClass": "MP",
+      "fillType": "N/A",
+      "psiRating": "230 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Nitrogen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page04.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10602822-MP230-RB-NI",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10602822-MP230-RB-NI-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10602822-MP230-RB-NI-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10602822-MP230-RB-NI-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-230L-MP-RB-ox",
+      "displayName": "Dura-Cyl® 230L MP · Round Base · Oxygen",
+      "size": "230L · Round Base",
+      "pressureClass": "MP",
+      "fillType": "N/A",
+      "psiRating": "230 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Oxygen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page04.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10602822-MP230-RB-OX",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10602822-MP230-RB-OX-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10602822-MP230-RB-OX-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10602822-MP230-RB-OX-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-230L-HP-RB-ar",
+      "displayName": "Dura-Cyl® 230L HP · Round Base · Argon",
+      "size": "230L · Round Base",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Argon",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page04.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10616546-HP230-RB-AR",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10616546-HP230-RB-AR-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10616546-HP230-RB-AR-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10616546-HP230-RB-AR-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-230L-HP-RB-ni",
+      "displayName": "Dura-Cyl® 230L HP · Round Base · Nitrogen",
+      "size": "230L · Round Base",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Nitrogen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page04.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10616546-HP230-RB-NI",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10616546-HP230-RB-NI-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10616546-HP230-RB-NI-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10616546-HP230-RB-NI-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-230L-HP-RB-ox",
+      "displayName": "Dura-Cyl® 230L HP · Round Base · Oxygen",
+      "size": "230L · Round Base",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Oxygen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page04.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10616546-HP230-RB-OX",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10616546-HP230-RB-OX-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10616546-HP230-RB-OX-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10616546-HP230-RB-OX-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-230L-HP-RB-co2",
+      "displayName": "Dura-Cyl® 230L HP · Round Base · CO₂",
+      "size": "230L · Round Base",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "CO2",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page04.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard A&B · CGA 622 Vent",
+              "partNumber": "DURA-10616546-HP230-RB-CO2-622",
+              "notes": ""
+            },
+            {
+              "label": "Standard A&B · CGA 295 Vent",
+              "partNumber": "DURA-10616546-HP230-RB-CO2-295",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings · CGA 622 Vent",
+              "partNumber": "DURA-10616546-HP230-RB-CO2-622-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings · CGA 295 Vent",
+              "partNumber": "DURA-10616546-HP230-RB-CO2-295-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-230L-LP-SB-NI",
+      "displayName": "Dura-Cyl® 230L LP · Square Base",
+      "size": "230L · Square Base",
+      "pressureClass": "LP",
+      "fillType": "N/A",
+      "psiRating": "22 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Nitrogen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-21524499-LP230-SB-PB-NI",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-21524499-LP230-SB-PB-NI-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-230L-MP-SB-ar",
+      "displayName": "Dura-Cyl® 230L MP · Square Base · Argon",
+      "size": "230L · Square Base",
+      "pressureClass": "MP",
+      "fillType": "N/A",
+      "psiRating": "230 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Argon",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10496468-MP230-SB-AR",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496468-MP230-SB-AR-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10496468-MP230-SB-AR-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496468-MP230-SB-AR-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-230L-MP-SB-ni",
+      "displayName": "Dura-Cyl® 230L MP · Square Base · Nitrogen",
+      "size": "230L · Square Base",
+      "pressureClass": "MP",
+      "fillType": "N/A",
+      "psiRating": "230 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Nitrogen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10496468-MP230-SB-NI",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496468-MP230-SB-NI-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10496468-MP230-SB-NI-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496468-MP230-SB-NI-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-230L-MP-SB-ox",
+      "displayName": "Dura-Cyl® 230L MP · Square Base · Oxygen",
+      "size": "230L · Square Base",
+      "pressureClass": "MP",
+      "fillType": "N/A",
+      "psiRating": "230 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Oxygen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10496468-MP230-SB-OX",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496468-MP230-SB-OX-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10496468-MP230-SB-OX-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496468-MP230-SB-OX-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-230L-HP-SB-ar",
+      "displayName": "Dura-Cyl® 230L HP · Square Base · Argon",
+      "size": "230L · Square Base",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Argon",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10496492-HP230-SB-AR",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496492-HP230-SB-AR-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10496492-HP230-SB-AR-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496492-HP230-SB-AR-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-230L-HP-SB-ni",
+      "displayName": "Dura-Cyl® 230L HP · Square Base · Nitrogen",
+      "size": "230L · Square Base",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Nitrogen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10496492-HP230-SB-NI",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496492-HP230-SB-NI-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10496492-HP230-SB-NI-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496492-HP230-SB-NI-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-230L-HP-SB-ox",
+      "displayName": "Dura-Cyl® 230L HP · Square Base · Oxygen",
+      "size": "230L · Square Base",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Oxygen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10496492-HP230-SB-OX",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496492-HP230-SB-OX-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10496492-HP230-SB-OX-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10496492-HP230-SB-OX-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-230L-HP-SB-co2",
+      "displayName": "Dura-Cyl® 230L HP · Square Base · CO₂",
+      "size": "230L · Square Base",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "CO2",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard A&B · CGA 622 Vent",
+              "partNumber": "DURA-10496492-HP230-SB-CO2-622",
+              "notes": ""
+            },
+            {
+              "label": "Standard A&B · CGA 295 Vent",
+              "partNumber": "DURA-10496492-HP230-SB-CO2-295",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings · CGA 622 Vent",
+              "partNumber": "DURA-10496492-HP230-SB-CO2-622-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings · CGA 295 Vent",
+              "partNumber": "DURA-10496492-HP230-SB-CO2-295-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-265L-MP-SB-ar",
+      "displayName": "Dura-Cyl® 265L MP · Square Base · Argon",
+      "size": "265L · Square Base",
+      "pressureClass": "MP",
+      "fillType": "N/A",
+      "psiRating": "230 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Argon",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page06.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10510039-MP265-SB-AR",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10510039-MP265-SB-AR-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10510039-MP265-SB-AR-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10510039-MP265-SB-AR-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-265L-MP-SB-ni",
+      "displayName": "Dura-Cyl® 265L MP · Square Base · Nitrogen",
+      "size": "265L · Square Base",
+      "pressureClass": "MP",
+      "fillType": "N/A",
+      "psiRating": "230 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Nitrogen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page06.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10510039-MP265-SB-NI",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10510039-MP265-SB-NI-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10510039-MP265-SB-NI-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10510039-MP265-SB-NI-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-265L-MP-SB-ox",
+      "displayName": "Dura-Cyl® 265L MP · Square Base · Oxygen",
+      "size": "265L · Square Base",
+      "pressureClass": "MP",
+      "fillType": "N/A",
+      "psiRating": "230 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Oxygen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page06.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10510039-MP265-SB-OX",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10510039-MP265-SB-OX-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10510039-MP265-SB-OX-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10510039-MP265-SB-OX-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-265L-HP-SB-ar",
+      "displayName": "Dura-Cyl® 265L HP · Square Base · Argon",
+      "size": "265L · Square Base",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Argon",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page06.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10512561-HP265-SB-AR",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10512561-HP265-SB-AR-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10512561-HP265-SB-AR-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10512561-HP265-SB-AR-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-265L-HP-SB-ni",
+      "displayName": "Dura-Cyl® 265L HP · Square Base · Nitrogen",
+      "size": "265L · Square Base",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Nitrogen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page06.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10512561-HP265-SB-NI",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10512561-HP265-SB-NI-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10512561-HP265-SB-NI-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10512561-HP265-SB-NI-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-265L-HP-SB-ox",
+      "displayName": "Dura-Cyl® 265L HP · Square Base · Oxygen",
+      "size": "265L · Square Base",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Oxygen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page06.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "DURA-10512561-HP265-SB-OX",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10512561-HP265-SB-OX-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "DURA-10512561-HP265-SB-OX-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "DURA-10512561-HP265-SB-OX-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "duracyl-265L-HP-SB-co2",
+      "displayName": "Dura-Cyl® 265L HP · Square Base · CO₂",
+      "size": "265L · Square Base",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "CO2",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page06.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard A&B · CGA 622 Vent",
+              "partNumber": "DURA-10512561-HP265-SB-CO2-622",
+              "notes": ""
+            },
+            {
+              "label": "Standard A&B · CGA 295 Vent",
+              "partNumber": "DURA-10512561-HP265-SB-CO2-295",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings · CGA 622 Vent",
+              "partNumber": "DURA-10512561-HP265-SB-CO2-622-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings · CGA 295 Vent",
+              "partNumber": "DURA-10512561-HP265-SB-CO2-295-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "C-Stic® Liquid Level Gauge (0–100%)",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "megacyl-450L-HP-ar",
+      "displayName": "Mega-Cyl® 450L HP · Argon",
+      "size": "450L",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Argon",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page09.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "MEGA-10588979-HP450-AR",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "MEGA-10588979-HP450-AR-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "Differential Pressure Contents Gauge",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "megacyl-450L-HP-ni",
+      "displayName": "Mega-Cyl® 450L HP · Nitrogen",
+      "size": "450L",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Nitrogen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page09.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "MEGA-10588979-HP450-NI",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "MEGA-10588979-HP450-NI-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "Differential Pressure Contents Gauge",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "megacyl-450L-HP-ox",
+      "displayName": "Mega-Cyl® 450L HP · Oxygen",
+      "size": "450L",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Oxygen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page09.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "MEGA-10588979-HP450-OX",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "MEGA-10588979-HP450-OX-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "Differential Pressure Contents Gauge",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "megacyl-450L-HP-co2",
+      "displayName": "Mega-Cyl® 450L HP · CO₂",
+      "size": "450L",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "CO2",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page09.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard A&B · CGA 622 Vent",
+              "partNumber": "MEGA-21793781-HP450-CO2-622",
+              "notes": ""
+            },
+            {
+              "label": "Standard A&B · CGA 295 Vent",
+              "partNumber": "MEGA-21793781-HP450-CO2-295",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings · CGA 622 Vent",
+              "partNumber": "MEGA-21793781-HP450-CO2-622-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings · CGA 295 Vent",
+              "partNumber": "MEGA-21793781-HP450-CO2-295-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "Differential Pressure Contents Gauge",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "laser-450L-VHP-ar",
+      "displayName": "Laser-Cyl® 450L VHP · Argon",
+      "size": "450L",
+      "pressureClass": "VHP",
+      "fillType": "N/A",
+      "psiRating": "500 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Argon",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page10.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "LASER-10619659-VHP450-RB-AR",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "LASER-10619659-VHP450-RB-AR-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "Differential Pressure Contents Gauge",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "laser-450L-VHP-ni",
+      "displayName": "Laser-Cyl® 450L VHP · Nitrogen",
+      "size": "450L",
+      "pressureClass": "VHP",
+      "fillType": "N/A",
+      "psiRating": "500 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Nitrogen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page10.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "LASER-10619659-VHP450-RB-NI",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "LASER-10619659-VHP450-RB-NI-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "Differential Pressure Contents Gauge",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "laser-450L-VHP-ox",
+      "displayName": "Laser-Cyl® 450L VHP · Oxygen",
+      "size": "450L",
+      "pressureClass": "VHP",
+      "fillType": "N/A",
+      "psiRating": "500 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Oxygen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page10.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "LASER-10619659-VHP450-RB-OX",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "LASER-10619659-VHP450-RB-OX-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "Differential Pressure Contents Gauge",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "laser-450L-VHP-co2",
+      "displayName": "Laser-Cyl® 450L VHP · CO₂",
+      "size": "450L",
+      "pressureClass": "VHP",
+      "fillType": "N/A",
+      "psiRating": "500 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "CO2",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page10.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard A&B · CGA 622 Vent",
+              "partNumber": "LASER-10619659-VHP450-RB-CO2-622",
+              "notes": ""
+            },
+            {
+              "label": "Standard A&B · CGA 295 Vent",
+              "partNumber": "LASER-10619659-VHP450-RB-CO2-295",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings · CGA 622 Vent",
+              "partNumber": "LASER-10619659-VHP450-RB-CO2-622-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings · CGA 295 Vent",
+              "partNumber": "LASER-10619659-VHP450-RB-CO2-295-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "Differential Pressure Contents Gauge",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "megacyl-1000L-HP-ar",
+      "displayName": "Mega-Cyl® 1000L HP · Argon",
+      "size": "1000L",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Argon",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page11.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "MEGA-10752281-HP1000-RB-AR",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "MEGA-10752281-HP1000-RB-AR-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "MEGA-10752281-HP1000-RB-AR-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "MEGA-10752281-HP1000-RB-AR-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "Differential Pressure Contents Gauge",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "megacyl-1000L-HP-ni",
+      "displayName": "Mega-Cyl® 1000L HP · Nitrogen",
+      "size": "1000L",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Nitrogen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page11.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "MEGA-10752281-HP1000-RB-NI",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "MEGA-10752281-HP1000-RB-NI-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "MEGA-10752281-HP1000-RB-NI-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "MEGA-10752281-HP1000-RB-NI-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "Differential Pressure Contents Gauge",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "megacyl-1000L-HP-ox",
+      "displayName": "Mega-Cyl® 1000L HP · Oxygen",
+      "size": "1000L",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "Oxygen",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page11.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard Restraint Type A&B",
+              "partNumber": "MEGA-10752281-HP1000-RB-OX",
+              "notes": ""
+            },
+            {
+              "label": "Add Dual Pressure Relief 22 PSI",
+              "partNumber": "MEGA-10752281-HP1000-RB-OX-DRV",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings",
+              "partNumber": "MEGA-10752281-HP1000-RB-OX-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC + Dual Pressure Relief 22 PSI",
+              "partNumber": "MEGA-10752281-HP1000-RB-OX-SDC-DRV",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "Differential Pressure Contents Gauge",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
+    },
+    {
+      "id": "megacyl-1000L-HP-co2",
+      "displayName": "Mega-Cyl® 1000L HP · CO₂",
+      "size": "1000L",
+      "pressureClass": "HP",
+      "fillType": "N/A",
+      "psiRating": "350 PSI",
+      "standard": "DOT",
+      "productType": "liquid",
+      "gas": "CO2",
+      "sourceFile": "dcat-1158-1173.pdf",
+      "heroImage": "images/tanks/dcat-hero-page11.webp",
+      "configSteps": [
+        {
+          "stepName": "Fittings Configuration",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "Standard A&B · CGA 622 Vent",
+              "partNumber": "MEGA-10752281-HP1000-RB-CO2-622",
+              "notes": ""
+            },
+            {
+              "label": "Standard A&B · CGA 295 Vent",
+              "partNumber": "MEGA-10752281-HP1000-RB-CO2-295",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings · CGA 622 Vent",
+              "partNumber": "MEGA-10752281-HP1000-RB-CO2-622-SDC",
+              "notes": ""
+            },
+            {
+              "label": "SDC Fittings · CGA 295 Vent",
+              "partNumber": "MEGA-10752281-HP1000-RB-CO2-295-SDC",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "stepName": "Medical Service Labeling",
+          "selectionType": "single",
+          "options": [
+            {
+              "label": "None / Not Required",
+              "partNumber": "",
+              "notes": ""
+            },
+            {
+              "label": "Oxygen USP Medical Label",
+              "partNumber": "DURA-OXYUSP-MED",
+              "notes": "Requires SDC fittings. O₂ only."
+            },
+            {
+              "label": "Nitrogen NF Medical Label",
+              "partNumber": "DURA-NNF-MED",
+              "notes": "Requires SDC fittings. N₂ only."
+            }
+          ]
+        }
+      ],
+      "standardIncludes": [
+        {
+          "label": "Differential Pressure Contents Gauge",
+          "partNumber": ""
+        }
+      ],
+      "applicableOptions": []
     }
   ],
   "addOnOptions": [
@@ -7485,7 +11200,7 @@
         {
           "label": "Top Fill",
           "partNumber": "PERMA-14640172-PBVAP",
-          "notes": "Field install only \u2014 option is in the 07 plumbing option"
+          "notes": "Field install only — option is in the 07 plumbing option"
         },
         {
           "label": "FlexFill",
@@ -7523,7 +11238,7 @@
       "image": "images/options/opt-05.webp",
       "variants": [
         {
-          "label": "450L\u20135500L MP",
+          "label": "450L–5500L MP",
           "partNumber": "PERMA-11719281-VOSP",
           "notes": "Qty 2 required when selected"
         },
@@ -7609,7 +11324,7 @@
     {
       "number": 12,
       "name": "Vacuum-Jacketed Valve & Bayonet",
-      "shortDescription": "\u00bd\" female bayonet for efficient liquid withdrawal. Specify side.",
+      "shortDescription": "½\" female bayonet for efficient liquid withdrawal. Specify side.",
       "selectionType": "side-choice",
       "image": "images/options/opt-12.webp",
       "variants": [
@@ -7625,7 +11340,7 @@
     },
     {
       "number": 13,
-      "name": "Top-Fill Bulk Fill Kit \u2014 LIN",
+      "name": "Top-Fill Bulk Fill Kit — LIN",
       "shortDescription": "Top-fill only.",
       "selectionType": "yes-no",
       "image": "images/options/opt-13.webp",
@@ -7638,7 +11353,7 @@
     },
     {
       "number": 14,
-      "name": "Top-Fill Bulk Fill Kit \u2014 LOX",
+      "name": "Top-Fill Bulk Fill Kit — LOX",
       "shortDescription": "Top-fill only.",
       "selectionType": "yes-no",
       "image": "images/options/opt-14.webp",
@@ -7651,7 +11366,7 @@
     },
     {
       "number": 15,
-      "name": "Top-Fill Bulk Fill Kit \u2014 ARG",
+      "name": "Top-Fill Bulk Fill Kit — ARG",
       "shortDescription": "Top-fill only.",
       "selectionType": "yes-no",
       "image": "images/options/opt-15.webp",
@@ -7664,7 +11379,7 @@
     },
     {
       "number": 16,
-      "name": "FlexFill Bulk Fill Kit \u2014 LIN",
+      "name": "FlexFill Bulk Fill Kit — LIN",
       "shortDescription": "FlexFill only.",
       "selectionType": "yes-no",
       "image": "images/options/opt-16.webp",
@@ -7677,7 +11392,7 @@
     },
     {
       "number": 17,
-      "name": "FlexFill Bulk Fill Kit \u2014 LOX",
+      "name": "FlexFill Bulk Fill Kit — LOX",
       "shortDescription": "FlexFill only.",
       "selectionType": "yes-no",
       "image": "images/options/opt-17.webp",
@@ -7690,7 +11405,7 @@
     },
     {
       "number": 18,
-      "name": "FlexFill Bulk Fill Kit \u2014 ARG",
+      "name": "FlexFill Bulk Fill Kit — ARG",
       "shortDescription": "FlexFill only.",
       "selectionType": "yes-no",
       "image": "images/options/opt-18.webp",
