@@ -198,7 +198,7 @@ function tankImg(src, tankName, sizing) {
     loading: 'lazy',
     style: sizing || '',
     onerror: function() {
-      if (!this.dataset.fallback) {
+      if (!this.dataset.fallback && /\.webp(\?.*)?$/.test(src)) {
         this.dataset.fallback = '1';
         this.src = src.replace(/\.webp(\?.*)?$/, '.jpg$1');
       } else {
