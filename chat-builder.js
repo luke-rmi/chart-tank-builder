@@ -318,6 +318,12 @@
     if (!builderState.tank) return;
     const tank = builderState.tank;
 
+    // Show the panel the first time a tank is selected
+    const panelCol = document.getElementById("rcd-panel-col");
+    if (panelCol && !panelCol.classList.contains("rcd-panel-visible")) {
+      panelCol.classList.add("rcd-panel-visible");
+    }
+
     // Hero image
     if (cbHeroEl) {
       cbHeroEl.innerHTML =
@@ -773,7 +779,7 @@
     } else {
       addMessageBubble(
         "assistant",
-        "Hey there 👋 — I’m Rex! I’m here to help you configure the right Chart microbulk tank for your application. What gas are you working with, and tell me a bit about your setup?"
+        "Just a demo, but check out how I can help you build a Chart tank! We won’t just piece it together, we are going to figure out exactly what your system requires. Where should we start?"
       );
     }
   })();
