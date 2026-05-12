@@ -8849,7 +8849,7 @@
       "productType": "liquid",
       "gas": "Nitrogen",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "heroImage": "images/roundbase.png",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -8903,7 +8903,7 @@
       "productType": "liquid",
       "gas": "Argon",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "heroImage": "images/roundbase.png",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -8972,7 +8972,7 @@
       "productType": "liquid",
       "gas": "Nitrogen",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "heroImage": "images/roundbase.png",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -9041,7 +9041,7 @@
       "productType": "liquid",
       "gas": "Oxygen",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "heroImage": "images/roundbase.png",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -9110,7 +9110,7 @@
       "productType": "liquid",
       "gas": "Argon",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "heroImage": "images/roundbase.png",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -9179,7 +9179,7 @@
       "productType": "liquid",
       "gas": "Nitrogen",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "heroImage": "images/roundbase.png",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -9248,7 +9248,7 @@
       "productType": "liquid",
       "gas": "Oxygen",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "heroImage": "images/roundbase.png",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -9317,7 +9317,7 @@
       "productType": "liquid",
       "gas": "CO2",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "heroImage": "images/roundbase.png",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -9386,7 +9386,7 @@
       "productType": "liquid",
       "gas": "Nitrogen",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "heroImage": "images/tanks/dcat-hero-page06.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -9440,7 +9440,7 @@
       "productType": "liquid",
       "gas": "Argon",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "heroImage": "images/tanks/dcat-hero-page06.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -9509,7 +9509,7 @@
       "productType": "liquid",
       "gas": "Nitrogen",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "heroImage": "images/tanks/dcat-hero-page06.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -9578,7 +9578,7 @@
       "productType": "liquid",
       "gas": "Oxygen",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "heroImage": "images/tanks/dcat-hero-page06.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -9647,7 +9647,7 @@
       "productType": "liquid",
       "gas": "Argon",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "heroImage": "images/tanks/dcat-hero-page06.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -9716,7 +9716,7 @@
       "productType": "liquid",
       "gas": "Nitrogen",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "heroImage": "images/tanks/dcat-hero-page06.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -9785,7 +9785,7 @@
       "productType": "liquid",
       "gas": "Oxygen",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "heroImage": "images/tanks/dcat-hero-page06.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -9854,7 +9854,7 @@
       "productType": "liquid",
       "gas": "CO2",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page05.webp",
+      "heroImage": "images/tanks/dcat-hero-page06.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
