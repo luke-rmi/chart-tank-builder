@@ -313,6 +313,69 @@
     chatLogEl.scrollTop = chatLogEl.scrollHeight;
   }
 
+  // ── Option selector cards ────────────────────────────────────────────────────
+  function addOptionSelectorCards(optionSelector) {
+    if (!optionSelector || !optionSelector.choices || !optionSelector.choices.length) return;
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "rcd-card-strip";
+
+    if (optionSelector.prompt) {
+      const promptEl = document.createElement("p");
+      promptEl.className = "rcd-card-prompt";
+      promptEl.textContent = optionSelector.prompt;
+      wrapper.appendChild(promptEl);
+    }
+
+    const grid = document.createElement("div");
+    grid.className = "rcd-option-grid";
+
+    optionSelector.choices.forEach(function (choice) {
+      const card = document.createElement("button");
+      card.className = "rcd-option-card";
+      card.type = "button";
+
+      const labelEl = document.createElement("div");
+      labelEl.className = "rcd-option-label";
+      labelEl.textContent = choice.label;
+      card.appendChild(labelEl);
+
+      if (choice.description) {
+        const descEl = document.createElement("div");
+        descEl.className = "rcd-option-desc";
+        descEl.textContent = choice.description;
+        card.appendChild(descEl);
+      }
+
+      card.addEventListener("click", function () {
+        if (card.disabled) return;
+
+        // Mark selected, disable all cards in this strip
+        grid.querySelectorAll(".rcd-option-card").forEach(function (c) {
+          c.classList.remove("selected");
+          c.disabled = true;
+        });
+        card.classList.add("selected");
+
+        // Update builder state with this confirmed selection
+        builderState.selections.push({
+          label: optionSelector.category,
+          value: choice.label,
+        });
+        if (builderState.tank) updateBuilderPanel();
+
+        // Send the choice value to Rex as a user message
+        sendText(choice.value);
+      });
+
+      grid.appendChild(card);
+    });
+
+    wrapper.appendChild(grid);
+    chatLogEl.appendChild(wrapper);
+    chatLogEl.scrollTop = chatLogEl.scrollHeight;
+  }
+
   // ── Builder panel ────────────────────────────────────────────────────────────
   function updateBuilderPanel() {
     if (!builderState.tank) return;
@@ -579,6 +642,11 @@
       // ── Render tank selector cards (the core hybrid feature)
       if (data.tank_selector) {
         addTankSelectorCards(data.tank_selector);
+      }
+
+      // ── Render option selector cards (pressure class, fill type, etc.)
+      if (data.option_selector) {
+        addOptionSelectorCards(data.option_selector);
       }
 
       if (data.escalation_pending) {
