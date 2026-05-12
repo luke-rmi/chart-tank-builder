@@ -7544,7 +7544,7 @@
       "productType": "liquid",
       "gas": "Nitrogen",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page07.webp",
+      "heroImage": "images/tanks/dcat-hero-page06.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -8849,7 +8849,7 @@
       "productType": "liquid",
       "gas": "Nitrogen",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page04.webp",
+      "heroImage": "images/tanks/dcat-hero-page05.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -8903,7 +8903,7 @@
       "productType": "liquid",
       "gas": "Argon",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page04.webp",
+      "heroImage": "images/tanks/dcat-hero-page05.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -8972,7 +8972,7 @@
       "productType": "liquid",
       "gas": "Nitrogen",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page04.webp",
+      "heroImage": "images/tanks/dcat-hero-page05.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -9041,7 +9041,7 @@
       "productType": "liquid",
       "gas": "Oxygen",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page04.webp",
+      "heroImage": "images/tanks/dcat-hero-page05.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -9110,7 +9110,7 @@
       "productType": "liquid",
       "gas": "Argon",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page04.webp",
+      "heroImage": "images/tanks/dcat-hero-page05.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -9179,7 +9179,7 @@
       "productType": "liquid",
       "gas": "Nitrogen",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page04.webp",
+      "heroImage": "images/tanks/dcat-hero-page05.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -9248,7 +9248,7 @@
       "productType": "liquid",
       "gas": "Oxygen",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page04.webp",
+      "heroImage": "images/tanks/dcat-hero-page05.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -9317,7 +9317,7 @@
       "productType": "liquid",
       "gas": "CO2",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page04.webp",
+      "heroImage": "images/tanks/dcat-hero-page05.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -10406,7 +10406,7 @@
       "productType": "liquid",
       "gas": "Argon",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page09.webp",
+      "heroImage": "images/tanks/dcat-hero-page10.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -10465,7 +10465,7 @@
       "productType": "liquid",
       "gas": "Nitrogen",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page09.webp",
+      "heroImage": "images/tanks/dcat-hero-page10.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -10524,7 +10524,7 @@
       "productType": "liquid",
       "gas": "Oxygen",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page09.webp",
+      "heroImage": "images/tanks/dcat-hero-page10.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
@@ -10583,7 +10583,7 @@
       "productType": "liquid",
       "gas": "CO2",
       "sourceFile": "dcat-1158-1173.pdf",
-      "heroImage": "images/tanks/dcat-hero-page09.webp",
+      "heroImage": "images/tanks/dcat-hero-page10.webp",
       "configSteps": [
         {
           "stepName": "Fittings Configuration",
