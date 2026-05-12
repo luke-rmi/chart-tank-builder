@@ -1,0 +1,132 @@
+<!-- Rex + Chart Tank Builder · rex-chart-demo.html
+     Deploy this file (and chat-builder.js + chat-builder.css) to the root of the
+     chart-tank-builder GitHub Pages repo alongside the existing index.html.
+     Then iframe it into Webflow at askrex.com/rex-chart-demo.
+
+     IMPORTANT: This page loads chart-data.json from the same origin (GitHub Pages).
+     The rex chat API calls go to the existing Supabase edge function — same as
+     the standard askrex.com chat. No interference with either.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rex + Chart Tank Builder · Ratermann Manufacturing</title>
+
+  <!-- Existing builder stylesheet (summary panel, buttons, typography) -->
+  <link rel="stylesheet" href="chart-builder.css" />
+  <!-- Hybrid layout + chat + tank card styles -->
+  <link rel="stylesheet" href="chat-builder.css" />
+
+  <!-- jsPDF for PDF export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <!-- Hybrid chat + builder logic -->
+  <script src="chat-builder.js" defer></script>
+</head>
+<body>
+
+<div class="rcd-wrap">
+
+  <!-- ── Header ────────────────────────────────────────────────────────────── -->
+  <header class="rcd-head">
+    <div class="rcd-head-left">
+      <div class="rcd-head-logos">
+        <img src="images/logo-rmi.jpg"   class="rcd-logo-rmi"   alt="Ratermann Manufacturing" />
+        <div class="rcd-logo-div"></div>
+        <img src="images/logo-chart.png" class="rcd-logo-chart" alt="Chart Industries" />
+      </div>
+      <div>
+        <h1 class="rcd-head">Rex + Chart Tank Builder</h1>
+        <p class="subtitle">Tell Rex what you need — Rex will guide you to the right tank and configuration.</p>
+      </div>
+    </div>
+    <span class="rcd-demo-badge">Demo</span>
+  </header>
+
+  <!-- ── Two-column layout ─────────────────────────────────────────────────── -->
+  <div class="rcd-layout">
+
+    <!-- LEFT: Rex chat column -->
+    <div class="rcd-chat-col">
+      <div id="rex-chat" class="chat-area">
+
+        <div id="chat-log">
+          <!-- Rex messages, user messages, and tank selector cards are injected here -->
+        </div>
+
+        <div id="image-preview-bar">
+          <!-- Image thumbnails injected here -->
+        </div>
+
+        <div class="search-bar-wrapper">
+          <button id="chat-attach" class="attach-btn" title="Attach images">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+            </svg>
+          </button>
+          <input id="chat-file" type="file" accept="image/jpeg,image/png" multiple style="display:none;" />
+          <input id="chat-input" class="search-input" type="text" placeholder="Describe your application — gas type, usage, setup…" />
+          <button id="chat-mic" class="mic-btn" title="Voice input" style="display:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 1a4 4 0 0 1 4 4v7a4 4 0 0 1-8 0V5a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v7a2 2 0 0 0 4 0V5a2 2 0 0 0-2-2zm-1 17.93V23h2v-2.07A8.001 8.001 0 0 0 20 13h-2a6 6 0 0 1-12 0H4a8.001 8.001 0 0 0 7 7.93z"/>
+            </svg>
+          </button>
+          <button id="chat-send" class="submit-btn" title="Send">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </div>
+
+      </div><!-- /#rex-chat -->
+    </div><!-- /.rcd-chat-col -->
+
+    <!-- RIGHT: Builder summary panel -->
+    <div class="rcd-panel-col">
+      <div class="summary" id="cb-summary">
+
+        <div class="summary-head">
+          <div class="summary-head-text">
+            <h2>Your Configuration</h2>
+            <p class="sub" id="cb-sub">Talk to Rex to get started.</p>
+          </div>
+          <div id="cb-hero" class="summary-hero"></div>
+        </div>
+
+        <div class="summary-scroll" id="cb-scroll">
+          <div id="cb-body">
+            <div class="empty" style="padding:24px 0;text-align:center;color:var(--ink-soft);font-size:13px;">
+              Rex will help you build your configuration.<br/>
+              Your selections will appear here.
+            </div>
+          </div>
+        </div>
+
+        <div class="summary-actions" id="cb-actions" style="display:none;">
+          <button class="btn secondary" id="cb-contact-btn" type="button">Contact Sales</button>
+          <button class="btn"           id="cb-pdf-btn"     type="button">Download PDF</button>
+        </div>
+
+      </div><!-- /.summary -->
+    </div><!-- /.rcd-panel-col -->
+
+  </div><!-- /.rcd-layout -->
+
+  <!-- ── Footer ────────────────────────────────────────────────────────────── -->
+  <footer class="rcd-foot">
+    <div class="rcd-foot-logos">
+      <img src="images/logo-rmi.jpg"   class="rcd-foot-logo-rmi"   alt="Ratermann Manufacturing" />
+      <div class="rcd-foot-logo-div"></div>
+      <img src="images/logo-chart.png" class="rcd-foot-logo-chart" alt="Chart Industries" />
+    </div>
+    <div>Ratermann Manufacturing, Inc. · 1-800-264-7793 · <a href="https://www.rmiorder.com" target="_blank" rel="noopener">rmiorder.com</a></div>
+  </footer>
+
+</div><!-- /.rcd-wrap -->
+
+<div class="toast" id="toast"></div>
+
+</body>
+</html>
