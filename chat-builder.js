@@ -649,6 +649,14 @@
         addOptionSelectorCards(data.option_selector);
       }
 
+      // ── Apply confirmed config items to the summary panel
+      if (data.config_items && data.config_items.length > 0) {
+        data.config_items.forEach(function (item) {
+          builderState.selections.push({ label: item.label, value: item.value });
+        });
+        if (builderState.tank) updateBuilderPanel();
+      }
+
       if (data.escalation_pending) {
         showEscalationButton(data.escalation);
       }
