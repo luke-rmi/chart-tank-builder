@@ -41,6 +41,7 @@ const state = {
   tank: null,
   stepSelections: {},    // {stepIndex: option}
   addOns: {},            // {optionNumber: {checked, variant}}
+  rexItems: [],          // items confirmed via Rex chat (label → value pairs)
 };
 
 // =============================================================
@@ -676,8 +677,9 @@ function renderSummary() {
   const body     = $('#sum-body');
   const actions  = $('#actions');
   const heroSlot = $('#sum-hero');
+  const hasRexItems = state.rexItems && state.rexItems.length > 0;
 
-  if (!state.tank) {
+  if (!state.tank && !hasRexItems) {
     sub.textContent = !state.gasType ? 'Select a gas type to begin.'
       : !state.productType         ? 'Choose a product category.'
       : !state.size                ? 'Choose a tank size.'
@@ -689,7 +691,27 @@ function renderSummary() {
   }
 
   body.innerHTML = '';
-  sub.textContent = state.tank.displayName + ' · ' + state.tank.psiRating;
+
+  if (state.tank) {
+    sub.textContent = state.tank.displayName + ' · ' + state.tank.psiRating;
+  } else {
+    sub.textContent = 'Confirmed with Rex';
+  }
+
+  if (hasRexItems) {
+    const secRex = el('div', {class: 'sum-section'});
+    secRex.appendChild(el('p', {class: 'sum-h'}, 'Confirmed with Rex'));
+    for (const item of state.rexItems) {
+      secRex.appendChild(makeSumItem(item.label, item.value));
+    }
+    body.appendChild(secRex);
+  }
+
+  if (!state.tank) {
+    actions.style.display = 'none';
+    if (heroSlot) heroSlot.innerHTML = '';
+    return;
+  }
 
   if (heroSlot) {
     heroSlot.innerHTML = '';
@@ -1274,23 +1296,84 @@ function confirmRestart(onConfirm) {
   cancel.focus();
 }
 
+function clearAllState() {
+  state.gasType = state.productType = state.size = state.pressureClass = state.tank = null;
+  state.stepSelections = {};
+  state.addOns = {};
+  state.rexItems = [];
+}
+
 function handleRestart() {
-  if (state.tank) {
+  if (state.tank || state.rexItems.length) {
     confirmRestart(() => {
-      state.gasType = state.productType = state.size = state.pressureClass = state.tank = null;
-      state.stepSelections = {};
-      state.addOns = {};
+      clearAllState();
       render();
       window.scrollTo({top: 0, behavior: 'smooth'});
     });
     return;
   }
-  state.gasType = state.productType = state.size = state.pressureClass = state.tank = null;
-  state.stepSelections = {};
-  state.addOns = {};
+  clearAllState();
   render();
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
+
+// =============================================================
+// Rex chat integration
+// =============================================================
+
+/**
+ * Called by the update_config_item tool (or any parent frame) to push a
+ * chat-confirmed item into the summary panel.
+ *
+ * - Pass a non-empty value to add or update an entry.
+ * - Pass null / undefined / "" as value to remove that entry.
+ */
+window.rexUpdateConfig = function(label, value) {
+  if (!label) return;
+  if (value === null || value === undefined || value === '') {
+    state.rexItems = state.rexItems.filter(i => i.label !== label);
+  } else {
+    const idx = state.rexItems.findIndex(i => i.label === label);
+    if (idx >= 0) {
+      state.rexItems[idx].value = value;
+    } else {
+      state.rexItems.push({ label, value });
+    }
+  }
+  renderSummary();
+};
+
+/** Wipe all Rex items (e.g. on a chat-initiated restart). */
+window.rexClearConfig = function() {
+  state.rexItems = [];
+  renderSummary();
+};
+
+/**
+ * postMessage listener — accepts messages from the chat frame or tool runner.
+ *
+ * Expected shapes:
+ *   { type: "update_config_item", label: "Gas Service", value: "Nitrogen" }
+ *   { type: "update_config_item", label: "Tank",        value: "1000L-HP-TF" }
+ *   { type: "remove_config_item", label: "Tank" }
+ *   { type: "clear_config_items" }
+ */
+window.addEventListener('message', function(event) {
+  const d = event.data;
+  if (!d || typeof d !== 'object') return;
+
+  switch (d.type) {
+    case 'update_config_item':
+      window.rexUpdateConfig(d.label, d.value);
+      break;
+    case 'remove_config_item':
+      window.rexUpdateConfig(d.label, '');
+      break;
+    case 'clear_config_items':
+      window.rexClearConfig();
+      break;
+  }
+});
 
 // =============================================================
 // Init
